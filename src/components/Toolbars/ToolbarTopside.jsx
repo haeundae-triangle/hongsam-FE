@@ -1,16 +1,27 @@
 import React from 'react';
-import {Person, BoxSeam, Bell} from 'react-bootstrap-icons'
+import {LogoIcon, CartIcon, AlarmIcon, MymenuIcon} from '../Icons/Icons'
 import styles from './ToolbarTopside.module.css'
 
+
+
+
 const ToolbarTopSide = () => {
+
+  
   return (
-    <>
-      <ul className={styles.navbar}> 
-        <button ><Bell /></button>
-        <button ><BoxSeam/></button>
-        <button ><Person /></button>
+    <header id='navbar' className={styles.navbar}>
+      <div id='navbarLogo'>
+        <LogoIcon />
+      </div>
+      <div>
+
+      </div>
+      <ul id='navbarRightMenu'>
+        <li id='topCartArea'><CartIcon /></li>
+        <li id='topAlarmArea'><AlarmIcon /></li>
+        <li id='topMymenuArea'><MymenuIcon /></li>
       </ul>
-    </>
+    </header>
   );
 };
 
