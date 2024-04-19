@@ -1,10 +1,13 @@
 .navbar{
-    background-color: #1e1e1e;
+    background: #1e1e1e;
+    backdrop-filter: blur(2px);
     color: white;
     list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    /* position: fixed; */
+    width: 100%;
   }
 
 .navbarRightMenu {
@@ -22,4 +25,5 @@ ul {
 
 li {
   display: list-item;
+  text-align: -webkit-match-parent;
 }

@@ -1,9 +1,11 @@
 .btn_alarm {
+    margin-top: 15px;
     padding: 5px;
     position: relative;
 }
 
 .link_logo, .link_mymenu, .link_cart {
+    margin-top: 15px;
     padding: 5px ;
     position: relative;
 }
@@ -18,10 +20,16 @@
 
 a, button {
     background-color: #1e1e1e;
-    border: 0.5px solid white;
+    border: none;
     display: inline-block;
+    font-size: 5px;
 }
 
 #topMenuLogo {
-    height: 20px;
+    height: 21px;
+}
+
+.btn {
+    height: 15px;
+    width: 15px;
 }

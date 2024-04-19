@@ -12,6 +12,7 @@ const MainView = () => {
     <div className="main-view">
         
         <ToolbarTopSide />
+        
         <AdBanner />
         <SearchBar />
         
