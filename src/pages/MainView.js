@@ -1,19 +1,40 @@
+import { useEffect, useState } from 'react';
 import ToolbarTopSide from "../components/Toolbars/ToolbarTopside";
-import AdBanner from "../components/Banners/AdBanner";
-import SearchBar from "../components/Toolbars/SearchBar";
+import {AdBanner} from "../components/Banners/AdBanner";
+import {SearchBar} from "../components/Toolbars/SearchBar";
 
-//NOTE - 카드로 바로 랜더링 할지 or 카드 가지고 만드는 랭킹도 컴포넌트로 만들지 고민
-import CardSmall from "../components/Cards/CardSmall";
-import CardLarge from "../components/Cards/CardLarge"
+//NOTE - 샘플 이미지
+import sampleImage1 from '../assets/sampleImage1.jpg';
+import sampleImage2 from '../assets/sampleImage2.jpg';
+import sampleImage3 from '../assets/sampleImage3.jpg';
+
 
 const MainView = () => {
+    const [bannerSlides, setBannerSlide] = useState([]);
+
+    const getBannerSlide = () => {
+        //TODO - API Call 구현 완료 후 배너 광고 가져오기
+        //NOTE - 아니면 배너광고는 asset 파일에 놔두고 가져오는건 어떨지?
+        const images = [
+        sampleImage1, sampleImage2, sampleImage3,
+        // 'public/Banner/sampleImage1',
+        // 'public/Banner/sampleImage2',
+        // 'public/Banner/sampleImage3',
+        ]
+        setBannerSlide(images);
+    }
+
+    useEffect(() => {
+        getBannerSlide();
+    }, [])
 
     return (
     <div className="main-view">
-        
+        <div style={{height:'2vw'}}></div>
         <ToolbarTopSide />
-        
-        <AdBanner />
+        <div style={{height:'2vw'}}></div>
+        <AdBanner slides={bannerSlides}/>
+        <div style={{height:'2vw'}}></div>
         <SearchBar />
         
     </div>

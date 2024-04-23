@@ -16,7 +16,7 @@ const ToolbarTopSide = () => {
       <div>
 
       </div>
-      <ul id='navbarRightMenu'>
+      <ul className={styles.navbarRightMenu}>
         <li id='topCartArea'><CartIcon /></li>
         <li id='topAlarmArea'><AlarmIcon /></li>
         <li id='topMymenuArea'><MymenuIcon /></li>

@@ -1,21 +1,11 @@
 .btn_alarm {
-    margin-top: 15px;
     padding: 5px;
     position: relative;
 }
 
 .link_logo, .link_mymenu, .link_cart {
-    margin-top: 15px;
     padding: 5px ;
     position: relative;
-}
-
-.link_logo {
-    margin-left: 15px;
-}
-
-.link_mymenu {
-    margin-right: 15px;
 }
 
 a, button {
