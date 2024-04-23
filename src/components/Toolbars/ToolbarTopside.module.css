@@ -13,7 +13,7 @@
   }
 
 
-.navbarRightMenu {
+.navbar_rightmenu {
   display: flex;
   flex-direction: row;
 }
