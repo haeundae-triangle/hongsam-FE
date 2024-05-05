@@ -1,18 +1,18 @@
 import { useState } from 'react'; // 추가
-import styles from './AdBanner.module.css';
+import styled from 'styled-components'
 import { CaretLeftFill, CaretRightFill } from 'react-bootstrap-icons';
 
 export const Slide = ({slides}) => {
   return (
     slides.map((image, index) => (
-    <div className={styles.slide_adbanner} key={index}> {/* key 추가 */}
-      <img src={image} alt={`Banner${index}`} />
-    </div>))
+      <SlideAdBanner key={index}>
+        <SlideImage src={image} alt={`Banner${index}`} />
+      </SlideAdBanner>
+    ))
   );
 };
 
-// 수정 시작
-export const AdBanner = ({slides}) => {
+export const AdBanner = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
@@ -24,14 +24,68 @@ export const AdBanner = ({slides}) => {
   };
 
   return (
-    <section style={{overflow:'hidden'}}>
-      <div className={styles.container_adbanner}>
-        <Slide slides={[slides[currentIndex]]}/> {/* 수정된 부분 */}
-        <div className={styles.arrow}> {/* class -> className으로 수정 */}
-            <button onClick={prevSlide}><CaretLeftFill /></button> {/* 수정된 부분 */}
-            <button onClick={nextSlide}><CaretRightFill /></button> {/* 수정된 부분 */}
-        </div>
-      </div>
-    </section>
+    <AdBannerSection>
+      <AdBannerContainer>
+        <SlideContainer>
+          <Slide slides={[slides[currentIndex]]}/>
+        </SlideContainer>
+        <ArrowContainer>
+          <ArrowButton onClick={prevSlide}><CaretLeftFill /></ArrowButton>
+          <ArrowButton onClick={nextSlide}><CaretRightFill /></ArrowButton>
+        </ArrowContainer>
+      </AdBannerContainer>
+    </AdBannerSection>
   );
 };
+
+const SlideContainer = styled.div`
+  position: relative;
+  width: 90vw;
+  height: 120px;
+`;
+
+const SlideAdBanner = styled.div`
+  transition: transform 0.5s;
+  width: 90vw;
+  height: 120px;
+`;
+
+const SlideImage = styled.img`
+  width: 100%;
+  height: 120px;
+  border-radius: 15px;
+`;
+
+const AdBannerSection = styled.section`
+  overflow: hidden;
+`;
+
+const AdBannerContainer = styled.div`
+  position: relative;
+  width: 90vw;
+  height: 120px;
+  margin: 0 auto;
+`;
+
+const ArrowContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 86vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2vw;
+`;
+
+// TODO : 배경색에 따라 화살표 다른 색상으로 만들기
+const ArrowButton = styled.button`
+  cursor: pointer;
+  color: #1E1E1E;
+  background-color: transparent;
+  font-size: 15px;
+  transition: transform 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+`;
