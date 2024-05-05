@@ -1,0 +1,25 @@
+.btn_alarm {
+    padding: 5px;
+    position: relative;
+}
+
+.link_logo, .link_mymenu, .link_cart {
+    padding: 5px ;
+    position: relative;
+}
+
+a, button {
+    background-color: #1e1e1e;
+    border: none;
+    display: inline-block;
+    font-size: 5px;
+}
+
+#topMenuLogo {
+    height: 21px;
+}
+
+.btn {
+    height: 15px;
+    width: 15px;
+}

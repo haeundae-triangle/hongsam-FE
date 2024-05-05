@@ -1,0 +1,41 @@
+.container_searchbar {
+    width: 90vw;
+    height: 60px;
+    margin-right: 5vw;
+    margin-left: 5vw;
+    display: flex;
+    align-items: center;
+    position: relative; /* Added to position button relative to the search bar */
+}
+
+.button_wrapper {
+    position: absolute;
+    top: 50%;
+    right: 2vw;
+    transform: translateY(-50%);
+}
+
+.searchbar {
+    height: 35px;
+    width: 90vw;
+    margin: 0;
+    border: 1px solid #aeaeae;
+
+    background-color: transparent;
+    border-radius: 10px;
+
+    color: #aeaeae;
+    font-size: 13px;
+
+    padding-left: 3vw;
+    text-align: left;
+}
+
+.submit_button {
+    border-radius: 50%; /* Makes button circular */
+    padding: 10px; /* Adds padding to button */
+    /* Comment out the line below to change the design of the button */
+    background-color: transparent;
+    color: #aeaeae;
+    font-size: 13px;
+}
