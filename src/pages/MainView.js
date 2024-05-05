@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
-import ToolbarTopSide from "../components/Toolbars/ToolbarTopside";
-import {AdBanner} from "../components/Banners/AdBanner";
-import {SearchBar} from "../components/Toolbars/SearchBar";
+import ToolbarTopSide from "../components/ToolbarTopside";
+import { AdBanner } from "../components/Banners/AdBanner";
+import { SearchBar } from "../components/SearchBar";
+import { GameListBanner } from '../components/Banners/GameListBanner';
+import { GameLists } from '../components/Main/GameLists';
+import { Games } from '../components/Main/Games';
 
 //NOTE - 샘플 이미지
 import sampleImage1 from '../assets/sampleImage1.jpg';
@@ -36,7 +39,9 @@ const MainView = () => {
         <AdBanner slides={bannerSlides}/>
         <div style={{height:'2vw'}}></div>
         <SearchBar />
-        
+        <GameListBanner />
+        <GameLists />
+        <Games />
     </div>
     );
 }
