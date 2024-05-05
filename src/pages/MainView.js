@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import ToolbarTopSide from "../components/Toolbars/ToolbarTopside";
+import ToolbarTopSide from "../components/ToolbarTopside";
 import {AdBanner} from "../components/Banners/AdBanner";
-import {SearchBar} from "../components/Toolbars/SearchBar";
+import {SearchBar} from "../components/SearchBar";
 
 //NOTE - 샘플 이미지
 import sampleImage1 from '../assets/sampleImage1.jpg';
