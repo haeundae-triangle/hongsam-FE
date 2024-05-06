@@ -21,6 +21,8 @@ export const Games = () => {
       <EachGames>
         <EachGame />
         <EachGame />
+        <EachGame />
+        <EachGame />
       </EachGames>
     </Container>
   );

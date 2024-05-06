@@ -1,12 +1,18 @@
 import React from 'react';
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
 
 // 게임 리스트 만들러가기 고정 베너
 export const GameListBanner = () => {
-  // 클릭 시 MakeGameList로 이동할 것
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/MakeGameList');
+  };
+
   return (
     <Container>
-      <BannerContainer>
+      <BannerContainer onClick={handleClick}>
         <H1>친구야 오늘 할 게임은 ____________야</H1>
         <H2>게임 리스트 공유하고 같이 재밌게 놀자</H2>
       </BannerContainer>
