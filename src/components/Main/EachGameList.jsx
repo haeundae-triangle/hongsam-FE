@@ -1,10 +1,17 @@
 import React from 'react';
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
 
 // 개별 게임 리스트 소개
 export const EachGameList = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/GameListDetail');
+  };
+
   return (
-    <Container>
+    <Container onClick={handleClick}>
       <ImageContainer>
       </ImageContainer>
       <TextContainer>

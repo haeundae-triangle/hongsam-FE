@@ -4,7 +4,7 @@ import { AdBanner } from "../components/Banners/AdBanner";
 import { SearchBar } from "../components/SearchBar";
 import { GameListBanner } from '../components/Banners/GameListBanner';
 import { GameLists } from '../components/Main/GameLists';
-import { Games } from '../components/Main/Games';
+import { GameFilter } from '../components/Main/GameFilter';
 
 //NOTE - 샘플 이미지
 import sampleImage1 from '../assets/sampleImage1.jpg';
@@ -41,7 +41,7 @@ const MainView = () => {
         <SearchBar />
         <GameListBanner />
         <GameLists />
-        <Games />
+        <GameFilter />
     </div>
     );
 }
