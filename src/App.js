@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styles from "./App.module.css"
 import MakeGameList from "./pages/MakeGameList.js"
 import GameListDetail from "./pages/GameListDetail.js"
+import GameDetail from "./pages/GameDetail.js"
 
 // TODO - 페이지별로 라우터 만들기 
 function App() {
@@ -13,8 +14,9 @@ function App() {
           <Route path="/" element={<MainView />}></Route>
           <Route path="MakeGameList" element={<MakeGameList />}></Route>
 
-          {/* TODO : 개별 게임리스트로 이동하도록 수정 */}
+          {/* TODO : 개별 게임리스트, 개별 게임으로 이동하도록 수정 */}
           <Route path="GameListDetail" element={<GameListDetail />}></Route>
+          <Route path="GameDetail" element={<GameDetail />}></Route>
         </Routes>
       </Router>
     </div>

@@ -1,11 +1,19 @@
 import React from 'react';
 import { FaFire } from 'react-icons/fa';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 // 개별 게임 소개 
 export const EachGame = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/GameDetail')
+  };
+
   return (
-    <Container>
+    // TODO : 버튼 누르고 선택 후 이동하도록 수정
+    <Container onClick={handleClick}>
       <ImageContainer>
       </ImageContainer>
       <TextContainer>
