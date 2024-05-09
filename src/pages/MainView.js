@@ -32,7 +32,7 @@ const MainView = () => {
     }, [])
 
     return (
-    <div className="main-view">
+      <div className="main-view">
         <div style={{height:'2vw'}}></div>
         <ToolbarTopSide />
         <div style={{height:'2vw'}}></div>
@@ -42,7 +42,7 @@ const MainView = () => {
         <GameListBanner />
         <GameLists />
         <GameFilter />
-    </div>
+      </div>
     );
 }
 
