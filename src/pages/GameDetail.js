@@ -34,8 +34,8 @@ const GameDetail = () => {
       </EachIconContainer>
     </IconContainer>
     <GameInfoTab>
-      <TabButton onClick={() => setSelected('rule')}>게임 방식</TabButton>
-      <TabButton onClick={() => setSelected('media')}>게임 영상 </TabButton>
+      <TabButton onClick={() => setSelected('rule')} selected={selected === 'rule'}>게임방식</TabButton>
+      <TabButton onClick={() => setSelected('media')} selected={selected === 'media'}>참고영상</TabButton>
       {/* 조건부 렌더링 */}
       {selected === 'rule' ? (
         <GameRules>게임 규칙 내용...</GameRules>
@@ -92,17 +92,37 @@ const H5 = styled.h5`
 `
 
 const GameInfoTab = styled.div`
-  padding: 0 5%;
+  padding: 2% 5%;
 `
 
 const TabButton = styled.button`
   height: 10vw;
   color: white;
   font-size: 15px;
+  position: relative;
+  margin: 1%;
   &:hover {
     opacity: 0.8;
   }
+
+  ${({ selected }) =>
+    selected &&
+    `
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0
+      bottom: 100%;
+      margin: auto;
+      width: 100%;
+      height: 8%;
+      background-color: white;
+    }
+  `}
 `;
+
 
 
 const GameRules = styled.div`
