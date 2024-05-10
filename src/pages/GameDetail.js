@@ -1,4 +1,4 @@
-// import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import React from 'react';
 import styled from 'styled-components'
 import { AiOutlinePlus, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai';
@@ -7,6 +7,7 @@ import ToolbarTopSide from "../components/ToolbarTopside";
 
 
 const GameDetail = () => {
+  const [selected, setSelected] = useState('rule')
 
   return (
   <div className="main-view">
@@ -32,8 +33,16 @@ const GameDetail = () => {
         <H5>친구에게 공유</H5>
       </EachIconContainer>
     </IconContainer>
-    <GamesContainer>
-    </GamesContainer>
+    <GameInfoTab>
+      <TabButton onClick={() => setSelected('rule')}>게임 방식</TabButton>
+      <TabButton onClick={() => setSelected('media')}>게임 영상 </TabButton>
+      {/* 조건부 렌더링 */}
+      {selected === 'rule' ? (
+        <GameRules>게임 규칙 내용...</GameRules>
+      ) : (
+        <GameMedia>게임 미디어 내용...</GameMedia>
+      )}
+    </GameInfoTab>
   </div>
   );
 }
@@ -82,6 +91,24 @@ const H5 = styled.h5`
   margin: 10% 0 0 0;
 `
 
-const GamesContainer = styled.div`
+const GameInfoTab = styled.div`
   padding: 0 5%;
+`
+
+const TabButton = styled.button`
+  height: 10vw;
+  color: white;
+  font-size: 15px;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+
+const GameRules = styled.div`
+  height: 20vw;
+`
+
+const GameMedia = styled.div`
+  height: 20vw;
 `
