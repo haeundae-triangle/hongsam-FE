@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { AiOutlinePlus, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai';
 
 import ToolbarTopSide from "../components/ToolbarTopside";
+import { GameRules } from '../components/GameRules';
 
 
 const GameDetail = () => {
@@ -38,7 +39,7 @@ const GameDetail = () => {
       <TabButton onClick={() => setSelected('media')} selected={selected === 'media'}>참고영상</TabButton>
       {/* 조건부 렌더링 */}
       {selected === 'rule' ? (
-        <GameRules>게임 규칙 내용...</GameRules>
+        <GameRules />
       ) : (
         <GameMedia>게임 미디어 내용...</GameMedia>
       )}
@@ -123,11 +124,6 @@ const TabButton = styled.button`
   `}
 `;
 
-
-
-const GameRules = styled.div`
-  height: 20vw;
-`
 
 const GameMedia = styled.div`
   height: 20vw;
