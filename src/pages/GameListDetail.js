@@ -12,33 +12,33 @@ const GameListDetail = () => {
 
   return (
   <div className="main-view">
-      <div style={{height:'2vw'}}></div>
-      <ToolbarTopSide />
-      <PictureContainer></PictureContainer>
-      <InfomationContainer>
-        <H2>Game List Title</H2>
-        <H3>A description of the game</H3>
-        {/* 이 부분에 들어갈 설명 수정 필요 */}
-      </InfomationContainer>
-      <IconContainer>
-        <EachIconContainer>
-          <AiOutlinePlus style={{ color: '#f3f3f3', fontSize: '42px' }}/>
-          <H5>내 리스트에 추가</H5>
-        </EachIconContainer>
-        <EachIconContainer>
-          <AiOutlineHeart style={{ color: '#f3f3f3', fontSize: '42px' }} />
-          <H5>좋아요</H5>
-        </EachIconContainer>
-        <EachIconContainer>
-          <AiOutlineShareAlt style={{ color: '#f3f3f3', fontSize: '42px' }}/>
-          <H5>친구에게 공유</H5>
-        </EachIconContainer>
-      </IconContainer>
-      <div style={{height:'2vw'}}></div>
-      <SearchBar />
-      <GamesContainer>
-        <Games />
-      </GamesContainer>
+    <div style={{height:'2vw'}}></div>
+    <ToolbarTopSide />
+    <PictureContainer></PictureContainer>
+    <InfomationContainer>
+      <H2>Game List Title</H2>
+      <H3>A description of the game</H3>
+      {/* 이 부분에 들어갈 설명 수정 필요 */}
+    </InfomationContainer>
+    <IconContainer>
+      <EachIconContainer>
+        <AiOutlinePlus style={{ color: '#f3f3f3', fontSize: '42px' }}/>
+        <H5>내 리스트에 추가</H5>
+      </EachIconContainer>
+      <EachIconContainer>
+        <AiOutlineHeart style={{ color: '#f3f3f3', fontSize: '42px' }} />
+        <H5>좋아요</H5>
+      </EachIconContainer>
+      <EachIconContainer>
+        <AiOutlineShareAlt style={{ color: '#f3f3f3', fontSize: '42px' }}/>
+        <H5>친구에게 공유</H5>
+      </EachIconContainer>
+    </IconContainer>
+    <div style={{height:'2vw'}}></div>
+    <SearchBar />
+    <GamesContainer>
+      <Games />
+    </GamesContainer>
   </div>
   );
 }
