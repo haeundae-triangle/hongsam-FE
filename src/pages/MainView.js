@@ -5,6 +5,7 @@ import { SearchBar } from "../components/SearchBar";
 import { GameListBanner } from '../components/Banners/GameListBanner';
 import { GameLists } from '../components/Main/GameLists';
 import { GameFilter } from '../components/Main/GameFilter';
+import styled from 'styled-components';
 
 //NOTE - 샘플 이미지
 import sampleImage1 from '../assets/sampleImage1.jpg';
@@ -32,18 +33,20 @@ const MainView = () => {
     }, [])
 
     return (
-      <div className="main-view">
-        <div style={{height:'2vw'}}></div>
+      <Container>
         <ToolbarTopSide />
-        <div style={{height:'2vw'}}></div>
         <AdBanner slides={bannerSlides}/>
-        <div style={{height:'2vw'}}></div>
         <SearchBar />
+        <GameFilter />
         <GameListBanner />
         <GameLists />
-        <GameFilter />
-      </div>
+      </Container>
     );
 }
 
 export default MainView;
+
+const Container = styled.div`
+  background-color: #222222;
+
+`

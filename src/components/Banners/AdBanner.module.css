@@ -37,7 +37,7 @@
 /* 화살표 버튼 스타일 추가 */
 .arrow button {
   cursor: pointer;
-  color: #1E1E1E;
+  color: #222222;
   background-color: transparent;
   font-size: 15px;
 }
