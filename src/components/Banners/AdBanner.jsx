@@ -42,11 +42,12 @@ const SlideContainer = styled.div`
   position: relative;
   width: 90vw;
   height: 120px;
+  margin: 2%;
 `;
 
 const SlideAdBanner = styled.div`
   transition: transform 0.5s;
-  width: 90vw;
+  // width: 100%;
   height: 120px;
 `;
 
@@ -71,7 +72,7 @@ const ArrowContainer = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 86vw;
+  width: 89.5vw;
   display: flex;
   justify-content: space-between;
   padding: 0 2vw;
@@ -80,7 +81,7 @@ const ArrowContainer = styled.div`
 // TODO : 배경색에 따라 화살표 다른 색상으로 만들기
 const ArrowButton = styled.button`
   cursor: pointer;
-  color: #1E1E1E;
+  color: #222222;
   background-color: transparent;
   font-size: 15px;
   transition: transform 0.1s ease-in-out;

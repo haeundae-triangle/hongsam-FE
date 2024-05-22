@@ -13,8 +13,8 @@ export const GameListBanner = () => {
   return (
     <Container>
       <BannerContainer onClick={handleClick}>
-        <H1>친구야 오늘 할 게임은 ____________야</H1>
-        <H2>게임 리스트 공유하고 같이 재밌게 놀자</H2>
+        <H4>홍삼으로 같이 할 게임 공유하고, 함께 술자리 즐겨요</H4>
+        <H3>홍삼과 함께라면, 어떤 술게임도 어렵지 않아요!</H3>
       </BannerContainer>
     </Container>
   );
@@ -28,26 +28,26 @@ const Container = styled.div`
 `;
 
 const BannerContainer = styled.div`
-  background-color: #7EF800;
+  background-color: #f8f8f8;
   margin: 2% auto;
   width: 90vw;
-  height: 160px;
+  height: 100px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 `
 
-const H1 = styled.h2`
-  color: #000000;
-  font-size: 32px;
+const H4 = styled.h4`
+  color: #FF5171;
+  font-size: 14px;
   margin: 2% 0;
   text-align: center;
 `;
 
-const H2 = styled.h2`
-  color: #000000;
-  font-size: 25px;
+const H3 = styled.h3`
+  color: #222222;
+  font-size: 16px;
   margin: 2% 0;
   text-align: center;
 `;
