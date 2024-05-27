@@ -11,8 +11,7 @@ import { Games } from "../components/Main/Games"
 const GameListDetail = () => {
 
   return (
-  <div className="main-view">
-    <div style={{height:'2vw'}}></div>
+  <Container>
     <ToolbarTopSide />
     <PictureContainer></PictureContainer>
     <InfomationContainer>
@@ -34,16 +33,19 @@ const GameListDetail = () => {
         <H5>친구에게 공유</H5>
       </EachIconContainer>
     </IconContainer>
-    <div style={{height:'2vw'}}></div>
     <SearchBar />
     <GamesContainer>
       <Games />
     </GamesContainer>
-  </div>
+  </Container>
   );
 }
 
 export default GameListDetail;
+
+const Container = styled.div`
+  background-color: #222222;
+`
 
 const PictureContainer = styled.div`
   height: 260px;
