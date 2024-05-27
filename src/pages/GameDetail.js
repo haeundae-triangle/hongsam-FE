@@ -11,8 +11,7 @@ const GameDetail = () => {
   const [selected, setSelected] = useState('rule')
 
   return (
-  <div className="main-view">
-    <div style={{height:'2vw'}}></div>
+  <Container>
     <ToolbarTopSide />
     <PictureContainer></PictureContainer>
     <InfomationContainer>
@@ -44,11 +43,15 @@ const GameDetail = () => {
         <GameMedia>게임 미디어 내용...</GameMedia>
       )}
     </GameInfoTab>
-  </div>
+  </Container>
   );
 }
 
 export default GameDetail;
+
+const Container = styled.div`
+  background-color: #222222;
+`
 
 const PictureContainer = styled.div`
   height: 260px;

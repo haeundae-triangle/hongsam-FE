@@ -1,14 +1,14 @@
 import MainView from "./pages/MainView.js"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import styles from "./App.module.css"
 import MakeGameList from "./pages/MakeGameList.js"
 import GameListDetail from "./pages/GameListDetail.js"
 import GameDetail from "./pages/GameDetail.js"
+import styled from 'styled-components'
 
 // TODO - 페이지별로 라우터 만들기 
 function App() {
   return (
-    <div className={styles.app}>
+    <Container>
       <Router>
         <Routes>
           <Route path="/" element={<MainView />}></Route>
@@ -19,9 +19,13 @@ function App() {
           <Route path="GameDetail" element={<GameDetail />}></Route>
         </Routes>
       </Router>
-    </div>
+    </Container>
    
   )
 }
 
 export default App;
+
+const Container = styled.div`
+  background-color: #222222;
+`
