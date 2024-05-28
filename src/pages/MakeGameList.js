@@ -30,10 +30,6 @@ const Container = styled.div`
   background-color: #222222;
 `
 
-// TODO : 화면 가로 방향 중앙정렬 하기
 const GameContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  flex-direction: column;
+  margin: 0 5%;
 `
