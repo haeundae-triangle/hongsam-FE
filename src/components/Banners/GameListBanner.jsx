@@ -9,7 +9,7 @@ export const GameListBanner = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/MakeGameList');
+    navigate('/GameBox');
   };
 
   return (
