@@ -1,21 +1,32 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import styled from 'styled-components';
 import { FaHome, FaCompass, FaBoxOpen } from 'react-icons/fa';
 
 const BottomNavigationBar = () => {
   const [selectedPage, setSelectedPage] = useState('Home');
 
+  const navigate = useNavigate();
+
+  const handleClick = (page) => {
+    setSelectedPage(page)
+    if (page !== 'Home') {
+      navigate(`/${page}`); 
+    }
+  };
+
   return (
     <NavContainer>
-      <NavItem onClick={() => setSelectedPage('Home')} isSelected={selectedPage === 'Home'}>
+      <NavItem onClick={() => handleClick('Home')} isSelected={selectedPage === 'Home'}>
         <FaHome size={22} />
         <H5>홈</H5>
       </NavItem>
-      <NavItem onClick={() => setSelectedPage('Search')} isSelected={selectedPage === 'Search'}>
+      <NavItem onClick={() => handleClick('Search')} isSelected={selectedPage === 'Search'}>
         <FaCompass size={22} />
         <H5>탐색</H5>
       </NavItem>
-      <NavItem onClick={() => setSelectedPage('GameBox')} isSelected={selectedPage === 'GameBox'}>
+      <NavItem onClick={() => handleClick('GameBox')} isSelected={selectedPage === 'GameBox'}>
         <FaBoxOpen size={22} />
         <H5>게임박스</H5>
       </NavItem>
