@@ -35,7 +35,7 @@ const GameListDetail = () => {
     </IconContainer>
     <SearchBar />
     <GamesContainer>
-      <Games />
+      <Games checkbox={false}/>
     </GamesContainer>
   </Container>
   );
