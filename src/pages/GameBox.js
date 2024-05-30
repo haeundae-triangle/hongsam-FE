@@ -1,12 +1,12 @@
 // import { useEffect, useState } from 'react';
 import ToolbarTopSide from "../components/ToolbarTopside";
 import { SearchBar } from "../components/SearchBar";
-import { InList } from "../components/MakeGameList/InList"
+import { InList } from "../components/GameBox/InList"
 import { Games } from "../components/Main/Games"
 import styled from 'styled-components';
 
 
-const MakeGameList = () => {
+const GameBox = () => {
     // const [addList, setAddList] = useState([]);
 
     // TODO
@@ -24,7 +24,7 @@ const MakeGameList = () => {
     );
 }
 
-export default MakeGameList;
+export default GameBox;
 
 const Container = styled.div`
   background-color: #222222;
