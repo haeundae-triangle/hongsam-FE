@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import ToolbarTopSide from "../components/ToolbarTopside";
 // import { SearchBar } from "../components/SearchBar";
 // import { InBox } from "../components/GameBox/InBox"
@@ -8,6 +10,11 @@ import styled from 'styled-components';
 const GameBox = () => {
 const [selectedList, setSelectedList] = useState([]);
 
+const navigate = useNavigate();
+const handleClick = () => {
+  navigate('/MakeLink');
+};
+
 return (
   <Container>
     <ToolbarTopSide />
@@ -16,7 +23,7 @@ return (
     <GameContainer>
       <Games checkbox={true}/>
     </GameContainer>
-    <ShareContainer>
+    <ShareContainer onClick={handleClick}>
       <H2>총 {selectedList.length}개 게임 공유하기</H2>
     </ShareContainer>
   </Container>
