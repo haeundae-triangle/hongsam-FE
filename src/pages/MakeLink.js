@@ -10,8 +10,9 @@ const GameBox = () => {
   const [pin, setPin] = useState('');
   const [userName, setUserName] = useState('');
 
-  const [link, setLink] = useState('');
+  const [link, setLink] = useState('templink');
 
+  // 네비게이션
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -19,7 +20,7 @@ const GameBox = () => {
   }
 
   const handleShareClick = () => {
-    navigate("/ShareLink");
+    navigate("/ShareLink", { state: {link} });
   }
 
   return (
@@ -33,22 +34,38 @@ const GameBox = () => {
           <H3>게임박스 이름</H3>
           <H5>* 필수</H5>
         </TextContainer>
-        <Input placeholder="게임박스의 이름을 입력하세요" />
+        <Input
+          placeholder="게임박스의 이름을 입력하세요" 
+          value={boxName}
+          onChange={(e) => setBoxName(e.target.value)}
+        />
       </InfoContainer>
       <InfoContainer>
         <H3>게임박스 간단 설명</H3>
-        <Input placeholder="게임박스를 설명해주세요" />
+        <Input
+          placeholder="게임박스를 설명해주세요" 
+          value={information}
+          onChange={(e) => setInformation(e.target.value)}
+        />
       </InfoContainer>
       <InfoContainer>
         <TextContainer>
           <H3>게임박스 비밀번호</H3>
           <H5>* 필수 : 추후 게임박스 수정을 위해 필요해요! 꼭 기억하세요!</H5>
         </TextContainer>
-        <Input placeholder="게임박스의 비밀번호를 입력해주세요" />
+        <Input
+          placeholder="게임박스의 비밀번호를 입력해주세요" 
+          value={pin}
+          onChange={(e) => setPin(e.target.value)}
+        />
       </InfoContainer>
       <InfoContainer>
         <H3>작성자 이름</H3>
-        <Input placeholder="표시될 작성자 이름을 입력해주세요" />
+        <Input
+          placeholder="표시될 작성자 이름을 입력해주세요"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
       </InfoContainer>
       <H3>총 N개 게임</H3>
       <ListContainer>
@@ -99,7 +116,6 @@ const Input = styled.input`
 
 const ListContainer = styled.div`
   margin: 2% auto;
-  constent-align: center;
   border: solid 1px #F8F8F8;
   width: 97%;
   height: 200px;
