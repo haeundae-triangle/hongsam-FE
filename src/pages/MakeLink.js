@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 // import { Games } from '../components/Main/Games'
 
 const GameBox = () => {
+  // 백엔드에 넘겨줄 정보
+  const [boxName, setBoxName] = useState('');
+  const [information, setInformation] = useState('');
+  const [pin, setPin] = useState('');
+  const [userName, setUserName] = useState('');
+
+  const [link, setLink] = useState('');
+
   const navigate = useNavigate();
 
   const handleBackClick = () => {

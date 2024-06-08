@@ -14,11 +14,11 @@ const GameListDetail = () => {
   <Container>
     <ToolbarTopSide />
     <PictureContainer></PictureContainer>
-    <InfomationContainer>
+    <InformationContainer>
       <H2>Game List Title</H2>
       <H3>A description of the game</H3>
       {/* 이 부분에 들어갈 설명 수정 필요 */}
-    </InfomationContainer>
+    </InformationContainer>
     <IconContainer>
       <EachIconContainer>
         <AiOutlinePlus style={{ color: '#f3f3f3', fontSize: '42px' }}/>
@@ -52,7 +52,7 @@ const PictureContainer = styled.div`
   background-color: red;
 `
 
-const InfomationContainer = styled.div`
+const InformationContainer = styled.div`
   height: auto;
   padding: 1% 6%;
 `

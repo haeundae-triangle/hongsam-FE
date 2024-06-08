@@ -1,14 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-// import { Games } from '../components/Main/Games'
 
 const GameBox = () => {
-  const navigate = useNavigate();
-
-  const handleBackClick = () => {
-    navigate(-1);
-  }
 
   return (
     <Container>

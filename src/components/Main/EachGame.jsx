@@ -38,17 +38,17 @@ return (
     )}
     <ImageContainer></ImageContainer>
     <TextContainer>
-    <InfomationContainer>
+    <InformationContainer>
       <TitleContainer onClick={handleClick}>
         <H3>Game Title</H3>
       </TitleContainer>
       <DifficultyContainer>
         <FaFire style={{ fontSize: '15px', color: 'red' }} />
       </DifficultyContainer>
-    </InfomationContainer>
-    <InfomationContainer>
+    </InformationContainer>
+    <InformationContainer>
       <H4>A description of the game</H4>
-    </InfomationContainer>
+    </InformationContainer>
     </TextContainer>
     <ButtonContainer>
     {checkbox ? (
@@ -111,7 +111,7 @@ const TextContainer = styled.div`
   padding: 3%;
 `
 
-const InfomationContainer = styled.div`
+const InformationContainer = styled.div`
   display: flex;   
   flex-direction: row;   
   align-items: center;   
