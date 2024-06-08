@@ -1,12 +1,19 @@
+import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { Games } from '../components/Main/Games'
 
 const GameBox = () => {
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate(-1);
+  }
 
   return (
     <Container>
       <TopBar>
-        <H3>{"<"}</H3>
+        <H3 onClick={handleBackClick} >{"<"}</H3>
         <H3>링크 공유하기</H3>
       </TopBar>
       <InfoContainer>
@@ -70,6 +77,7 @@ const TextContainer = styled.div`
 
 const Input = styled.input`
   width: 100%;
+  height: auto;
   padding: 10px;
   margin: 3% 0;
   border: solid 2px #AEAEAE;
