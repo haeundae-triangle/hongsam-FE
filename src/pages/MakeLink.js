@@ -10,7 +10,7 @@ const GameBox = () => {
   const [pin, setPin] = useState('');
   const [userName, setUserName] = useState('');
 
-  const [link, setLink] = useState('templink');
+  const [link, setLink] = useState('templinktemplinktemplinktemplinktemplinktemplinktemplinktemplinktemplinktemplinktemplinktemplinktemplinktemplink');
 
   // 네비게이션
   const navigate = useNavigate();
