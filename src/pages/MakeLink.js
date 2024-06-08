@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { Games } from '../components/Main/Games'
+// import { Games } from '../components/Main/Games'
 
 const GameBox = () => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
     navigate(-1);
+  }
+
+  const handleShareClick = () => {
+    navigate("/ShareLink");
   }
 
   return (
@@ -41,7 +45,7 @@ const GameBox = () => {
       <H3>총 N개 게임</H3>
       <ListContainer>
       </ListContainer>
-      <ShareContainer>
+      <ShareContainer onClick={handleShareClick}>
         <H2>공유 링크 생성</H2>
       </ShareContainer>
     </Container>
