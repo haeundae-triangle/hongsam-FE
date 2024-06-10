@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
 import { Search } from 'react-bootstrap-icons';
+import { useNavigate } from 'react-router-dom';
 
 export const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevents page reload
     console.log(searchTerm); // Logs search term in console
     setSearchTerm(''); // Initializes placeholder after submission
+    navigate("/Search", { state: {searchTerm}})
   };
 
   return (
