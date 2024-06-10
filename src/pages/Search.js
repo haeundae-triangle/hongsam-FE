@@ -7,16 +7,23 @@ import { SearchBar } from "../components/SearchBar";
 
 const Search = () => {
   const location = useLocation();
-  const { searchTerm } = location.state;
-  const [searchWord, setSearchWord] = useState(searchTerm);
+  const userInput = location.state?.userInput || '';
+  const [searchWord, setSearchWord] = useState(userInput);
+
+  const handleUserInputChange = (newInput) => {
+    setSearchWord(newInput);
+  };
 
   return (
     <Container>
       {/* MakeLink/TopBar 외부로 빼서 가져오기 */}
-      <SearchBar initialSearchTerm={searchTerm} />
+      <SearchBar
+        initialUserInput={userInput}
+        onUserInputChange={handleUserInputChange}
+      />
       {searchWord ? (
         // TODO : 검색결과 / 일치하는 결과가 없습니다 표시
-        <NoH3>검색 결과가 없습니다.</NoH3>
+        <NoH3>'{searchWord}' 의 검색 결과가 없습니다.</NoH3>
       ) : (
         <HistoryContainer>
           <H3>최근 검색어</H3>
