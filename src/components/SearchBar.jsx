@@ -33,14 +33,14 @@ export const SearchBar = ({ initialUserInput = '', onUserInputChange }) => {
         placeholder="게임을 검색해봐! 홍삼이 가르쳐줄게!"
       />
       <ButtonWrapper>
-        {userInput && userInput === initialUserInput ? (
-          <DeleteButton type="button" onClick={handleClear}>
-            X
-          </DeleteButton>
-        ) : (
+        {userInput !== initialUserInput ? (
           <SubmitButton type="submit">
             <Search size={16} />
           </SubmitButton>
+        ) : (
+          <DeleteButton type="button" onClick={handleClear}>
+            X
+          </DeleteButton>
         )}
       </ButtonWrapper>
     </ContainerSearchBar>
