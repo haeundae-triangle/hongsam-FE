@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 import ToolbarTopSide from "../components/ToolbarTopside";
 import { SearchBar } from "../components/SearchBar";
+import { Games } from "../components/Main/Games";
 
 const Search = () => {
   const location = useLocation();
@@ -31,6 +32,7 @@ const Search = () => {
       )}
       <RecommendCointainer>
         <H3>추천 게임</H3>
+        <Games />
       </RecommendCointainer>
     </Container>
   );
