@@ -14,9 +14,14 @@ const Search = () => {
     <Container>
       {/* MakeLink/TopBar 외부로 빼서 가져오기 */}
       <SearchBar initialSearchTerm={searchTerm} />
-      <HistoryContainer>
-        <H3>최근 검색어</H3>
-      </HistoryContainer>
+      {searchWord ? (
+        // TODO : 검색결과 / 일치하는 결과가 없습니다 표시
+        <NoH3>검색 결과가 없습니다.</NoH3>
+      ) : (
+        <HistoryContainer>
+          <H3>최근 검색어</H3>
+        </HistoryContainer>
+      )}
       <RecommendCointainer>
         <H3>추천 게임</H3>
       </RecommendCointainer>
@@ -52,7 +57,14 @@ const H2 = styled.h2`
   justify-align: center;
 `
 
-const H3 = styled.h4`
+const NoH3 = styled.h3`
+  text-align: center;
+  color: #AEAEAE;
+  font-size: 16px;
+  margin: 5%;
+`
+
+const H3 = styled.h3`
   color: #645FFF;
   font-size: 16px;
   margin: 0;
