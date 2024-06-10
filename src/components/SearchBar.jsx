@@ -1,67 +1,99 @@
-import React, { useState } from 'react';
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { Search } from 'react-bootstrap-icons';
+import { useNavigate } from 'react-router-dom';
 
-export const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+export const SearchBar = ({ initialUserInput = '', onUserInputChange }) => {
+  const [userInput, setUserInput] = useState('');
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setUserInput(initialUserInput);
+  }, [initialUserInput]);
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevents page reload
-    console.log(searchTerm); // Logs search term in console
-    setSearchTerm(''); // Initializes placeholder after submission
+    navigate("/Search", { state: { userInput } });
+    onUserInputChange(userInput)
+  };
+
+  const handleClear = () => {
+    setUserInput('');
+    onUserInputChange('');
   };
 
   return (
     <ContainerSearchBar onSubmit={handleSubmit}>
       <SearchBarInput
         type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        value={userInput}
+        // onChange={handleChange}
+        onChange={(e) => setUserInput(e.target.value)}
         placeholder="게임을 검색해봐! 홍삼이 가르쳐줄게!"
       />
       <ButtonWrapper>
-        <SubmitButton><Search /></SubmitButton>
+        {userInput !== initialUserInput ? (
+          <SubmitButton type="submit">
+            <Search size={16} />
+          </SubmitButton>
+        ) : (
+          <DeleteButton type="button" onClick={handleClear}>
+            X
+          </DeleteButton>
+        )}
       </ButtonWrapper>
     </ContainerSearchBar>
   );
 };
 
 const ContainerSearchBar = styled.form`
-    width: 90vw;
-    height: 60px;
-    margin: 2% 5vw;
-    display: flex;
-    align-items: center;
-    position: relative; /* Added to position button relative to the search bar */
+  width: 90vw;
+  height: 60px;
+  margin: 2% 5vw;
+  display: flex;
+  align-items: center;
+  position: relative; 
 `;
 
 const ButtonWrapper = styled.div`
-    position: absolute;
-    top: 50%;
-    right: 2vw;
-    transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  right: 2vw;
+  transform: translateY(-50%);
 `;
 
 const SearchBarInput = styled.input`
-    height: 35px;
-    width: 90vw;
-    margin: 0;
-    border: 1px solid #aeaeae;
+  height: 35px;
+  width: 90vw;
+  margin: 0;
+  border: 1px solid #aeaeae;
 
-    background-color: transparent;
-    border-radius: 10px;
+  background-color: transparent;
+  border-radius: 10px;
 
-    color: #aeaeae;
-    font-size: 13px;
+  color: #aeaeae;
+  font-size: 13px;
 
-    padding-left: 3vw;
-    text-align: left;
+  padding-left: 3vw;
+  text-align: left;
 `;
 
 const SubmitButton = styled.button`
-    border-radius: 50%; /* Makes button circular */
-    padding: 10px; /* Adds padding to button */
-    background-color: transparent;
-    color: #aeaeae;
-    font-size: 13px;
+  border-radius: 50%;
+  padding: 5px; 
+  background-color: transparent;
+  color: #aeaeae;
+  font-size: 13px;
+  border: none;
 `;
+
+const DeleteButton = styled.button`
+  padding: 5px;
+  background-color: transparent;
+  color: #aeaeae;
+  font-size: 16px;
+  border: none;
+  line-height: 1;
+`;
+
