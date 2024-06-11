@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
 
-const TopBar = ({ title }) => {
+const TopBar = ({ title,  }) => {
 
   const navigate = useNavigate();
 
