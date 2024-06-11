@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 
-import ToolbarTopSide from "../components/ToolbarTopside";
+import TopBar from "../components/TopBar";
 import { SearchBar } from "../components/SearchBar";
 import { Games } from "../components/Main/Games";
 
@@ -17,6 +17,7 @@ const Search = () => {
 
   return (
     <Container>
+      <TopBar title={"게임 검색하기"}/>
       {/* MakeLink/TopBar 외부로 빼서 가져오기 */}
       <SearchBar
         initialUserInput={userInput}
