@@ -18,7 +18,6 @@ const Search = () => {
   return (
     <Container>
       <TopBar title={"게임 검색하기"}/>
-      {/* MakeLink/TopBar 외부로 빼서 가져오기 */}
       <SearchBar
         initialUserInput={userInput}
         onUserInputChange={handleUserInputChange}
@@ -58,13 +57,6 @@ const HistoryContainer = styled.div`
 const RecommendCointainer = styled.div`
   height: auto;
   margin: 6%;
-`
-
-const H2 = styled.h2`
-  color: #F8F8F8;
-  font-size: 25px;
-  text-align: center;
-  justify-align: center;
 `
 
 const NoH3 = styled.h3`

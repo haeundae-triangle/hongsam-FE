@@ -16,6 +16,7 @@ import sampleImage3 from '../assets/sampleImage3.jpg';
 
 const MainView = () => {
     const [bannerSlides, setBannerSlide] = useState([]);
+    const [userInput, setUserInput] = useState('');
 
     const getBannerSlide = () => {
         //TODO - API Call 구현 완료 후 배너 광고 가져오기
@@ -37,7 +38,9 @@ const MainView = () => {
       <Container>
         <ToolbarTopSide />
         <AdBanner slides={bannerSlides}/>
-        <SearchBar />
+        <SearchBar
+          initialUserInput={userInput}
+        />
         <GameFilter />
         <GameListBanner />
         <GameLists />
