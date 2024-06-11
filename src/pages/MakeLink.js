@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+
+import TopBar from '../components/TopBar';
 // import { Games } from '../components/Main/Games'
 
 const GameBox = () => {
@@ -15,20 +17,13 @@ const GameBox = () => {
   // 네비게이션
   const navigate = useNavigate();
 
-  const handleBackClick = () => {
-    navigate(-1);
-  }
-
   const handleShareClick = () => {
     navigate("/ShareLink", { state: {link} });
   }
 
   return (
     <Container>
-      <TopBar>
-        <H3 onClick={handleBackClick} >{"<"}</H3>
-        <H3>링크 공유하기</H3>
-      </TopBar>
+      <TopBar title={"링크 공유하기"}/>
       <InfoContainer>
         <TextContainer>
           <H3>게임박스 이름</H3>
@@ -82,17 +77,6 @@ export default GameBox;
 const Container = styled.div`
   height: auto;
   background-color: #222222;
-`
-
-const TopBar = styled.div`
-  height: 50px;
-  background-color: #3D3D3D;
-  display: flex;
-  align-items: center;
-  
-  & > h3 {
-    margin: 0 0 0 5%;
-  }
 `
 
 const InfoContainer = styled.div`
