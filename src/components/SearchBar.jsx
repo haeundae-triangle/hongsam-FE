@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 export const SearchBar = ({ initialUserInput = '', onUserInputChange }) => {
   const [userInput, setUserInput] = useState('');
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,7 +27,6 @@ export const SearchBar = ({ initialUserInput = '', onUserInputChange }) => {
       <SearchBarInput
         type="text"
         value={userInput}
-        // onChange={handleChange}
         onChange={(e) => setUserInput(e.target.value)}
         placeholder="게임을 검색해봐! 홍삼이 가르쳐줄게!"
       />
