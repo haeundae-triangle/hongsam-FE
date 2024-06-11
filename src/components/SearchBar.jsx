@@ -14,7 +14,7 @@ export const SearchBar = ({ initialUserInput = '', onUserInputChange }) => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevents page reload
     navigate("/Search", { state: { userInput } });
-    onUserInputChange(userInput)
+    initialUserInput && onUserInputChange(userInput)
   };
 
   const handleClear = () => {
