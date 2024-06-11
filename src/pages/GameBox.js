@@ -19,7 +19,7 @@ const handleAddAllGame = () => {}
 return (
   <Container>
     <ContentsContainer>
-      <TopBar title={"게임 박스"}/>
+      <TopBar title={"게임 박스"} brief={"내가 고른 게임들을 친구들과 공유해봐요"}/>
       <GameContainer>
         <Games checkbox={true}/>
       </GameContainer>
