@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 import TopBar from '../components/TopBar';
-// import { Games } from '../components/Main/Games'
+import { Games } from '../components/Main/Games'
 
-const GameBox = () => {
+const MakeLink = () => {
   // 백엔드에 넘겨줄 정보
   const [boxName, setBoxName] = useState('');
   const [information, setInformation] = useState('');
@@ -64,6 +64,7 @@ const GameBox = () => {
       </InfoContainer>
       <H3>총 N개 게임</H3>
       <ListContainer>
+        <Games numbering={true}/>
       </ListContainer>
       <ShareContainer onClick={handleShareClick}>
         <H2>공유 링크 생성</H2>
@@ -72,7 +73,7 @@ const GameBox = () => {
   );
 }
     
-export default GameBox;
+export default MakeLink;
 
 const Container = styled.div`
   height: auto;
@@ -102,7 +103,7 @@ const ListContainer = styled.div`
   margin: 2% auto;
   border: solid 1px #F8F8F8;
   width: 97%;
-  height: 200px;
+  height: auto;
 `
 
 const ShareContainer = styled.div`
@@ -111,7 +112,8 @@ const ShareContainer = styled.div`
   justify-content: center;
   background-color: #645FFF;
   width: 100%;
-  height: 50px;
+  height: auto;
+  min-height: 50px;
   margin-top: 3%;
 `
 
