@@ -1,26 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components'
 import { EachGame } from './EachGame';
 
-export const Games = ({ listFilter, checkbox }) => {
+export const Games = ({ title, brief, checkbox, numbering }) => {
+  const [games, setGames] = useState(['Game1', 'Game2', 'Game3', 'Game4', 'Game5'])
 
-return (
-  <Container>
-    {!checkbox && (
-    <TitleContainer>
-      <H2>{ listFilter }</H2> 
-      <H3>리스트 설명을 기입할 공간입니다</H3>
-    </TitleContainer>
-    )}
-    <EachGames>
-      <EachGame checkbox={checkbox} />
-      <EachGame checkbox={checkbox} />
-      <EachGame checkbox={checkbox} />
-      <EachGame checkbox={checkbox} />
-      <EachGame checkbox={checkbox} />
-    </EachGames>
-  </Container>
-);
+  // TODO : useEffect 추가
+
+  return (
+    <Container>
+      {!checkbox && (
+      <TitleContainer>
+        {title && <H2>{ title }</H2>}
+        {brief && <H3>{ brief }</H3>} 
+      </TitleContainer>
+      )}
+      <EachGames>
+        {games.map((game, index) => (
+          <EachGame key={index} index={index + 1} title={game} checkbox={checkbox} numbering={numbering}/>
+        ))}
+      </EachGames>
+    </Container>
+  );
 };
 
 const Container = styled.div`
