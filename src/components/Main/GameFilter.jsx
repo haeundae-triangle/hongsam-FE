@@ -15,7 +15,7 @@ export const GameFilter = () => {
           <Tag key={index} isSelected={listTag === tag} onClick={() => setListTag(tag)}>{tag}</Tag>
         ))}
       </TagContianer>
-      <Games listFilter={listTag}></Games>
+      <Games title={listTag}></Games>
     </Container>
   );
 };
