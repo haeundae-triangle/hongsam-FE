@@ -5,6 +5,22 @@ import { EachGame } from './EachGame';
 export const Games = ({ title, brief, checkbox, numbering }) => {
   const [games, setGames] = useState(['Game1', 'Game2', 'Game3', 'Game4', 'Game5'])
 
+  const apiUrl = process.env.REACT_APP_API_ENDPOINT
+
+  fetch(`${apiUrl}/api/games/top10`)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('실패');
+      }
+      return res.json();
+    })
+    .then(data => {
+      console.log('성공:', data);
+    })
+    .catch(err => {
+      console.error('Error:', err);
+    });
+
   // TODO : useEffect 추가
 
   return (
