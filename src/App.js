@@ -5,7 +5,7 @@ import GameListDetail from "./pages/GameListDetail.js"
 import GameDetail from "./pages/GameDetail.js"
 import MakeLink from "./pages/MakeLink.js"
 import ShareLink from "./pages/ShareLink.js"
-import Search from "./pages/Search.js"
+// import Search from "./pages/Search.js"
 import styled from 'styled-components'
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainView />}></Route>
           <Route path="GameBox" element={<GameBox />}></Route>
-          <Route path="Search" element={<Search />}></Route>
+          {/* <Route path="Search" element={<Search />}></Route> */}
 
           {/* TODO : 개별 게임리스트, 개별 게임으로 이동하도록 수정 */}
           <Route path="GameListDetail" element={<GameListDetail />}></Route>

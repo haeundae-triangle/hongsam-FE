@@ -5,7 +5,7 @@ import { SearchBar } from "../components/SearchBar";
 import { GameListBanner } from '../components/Banners/GameListBanner';
 import { GameLists } from '../components/Main/GameLists';
 import { GameFilter } from '../components/Main/GameFilter';
-import BottomNavigationBar from '../components/Main/BottomNavigationBar';
+import BottomNavigationBar from '../components/BottomNavigationBar';
 import styled from 'styled-components';
 
 //NOTE - 샘플 이미지
