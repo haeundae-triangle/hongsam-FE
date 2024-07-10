@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import { EachGame } from './EachGame';
 
 export const Games = ({ title, brief, checkbox, numbering }) => {
   const [games, setGames] = useState(['Game1', 'Game2', 'Game3', 'Game4', 'Game5'])
+  const [temp, setTemp] = useState('');
 
   const apiUrl = process.env.REACT_APP_API_ENDPOINT
 
-  fetch(`${apiUrl}/api/games/top10`)
-    .then(res => {
-      if (!res.ok) {
-        throw new Error('실패');
-      }
-      return res.json();
-    })
-    .then(data => {
-      console.log('성공:', data);
-    })
-    .catch(err => {
-      console.error('Error:', err);
-    });
+  useEffect(() => {
+    fetch(`${apiUrl}/api/games/top10`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Error');
+        }
+        return res.json();
+      })
+      .then(data => {
+        const jsonString = JSON.stringify(data, null, 2);
+        console.log(jsonString);
+        setTemp(jsonString);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
 
-  // TODO : useEffect 추가
+    }, [temp]);
 
   return (
     <Container>
