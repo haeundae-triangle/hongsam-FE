@@ -1,27 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
 import { EachGame } from './EachGame';
+import useFetchTop10 from '../../hooks/useFetchTop10';
 
 export const Games = ({ title, brief, checkbox, numbering }) => {
   const [games, setGames] = useState(['Game1', 'Game2', 'Game3', 'Game4', 'Game5'])
-
-  const apiUrl = process.env.REACT_APP_API_ENDPOINT
-
-  fetch(`${apiUrl}/api/games/top10`)
-    .then(res => {
-      if (!res.ok) {
-        throw new Error('실패');
-      }
-      return res.json();
-    })
-    .then(data => {
-      console.log('성공:', data);
-    })
-    .catch(err => {
-      console.error('Error:', err);
-    });
-
-  // TODO : useEffect 추가
+  const { top10Games, error, isLoading } = useFetchTop10();
 
   return (
     <Container>
@@ -31,11 +15,25 @@ export const Games = ({ title, brief, checkbox, numbering }) => {
         {brief && <H3>{ brief }</H3>} 
       </TitleContainer>
       )}
-      <EachGames>
+      <EachGameContainer>
+        {!isLoading && (top10Games.map((game, index) => (
+            <EachGame
+              // key={game.game.id || index}
+              key={game.game_id}
+              index={index + 1}
+              game={game}
+              checkbox={checkbox}
+              numbering={numbering}
+            >
+            </EachGame>
+          )))
+        };
+      </EachGameContainer>
+      {/* <EachGameContainer>
         {games.map((game, index) => (
           <EachGame key={index} index={index + 1} title={game} checkbox={checkbox} numbering={numbering}/>
         ))}
-      </EachGames>
+      </EachGameContainer> */}
     </Container>
   );
 };
@@ -62,7 +60,7 @@ const H3 = styled.h3`
   font-size: 16px;
 `
 
-const EachGames = styled.div`
+const EachGameContainer = styled.div`
   display: flex;   
   flex-direction: column;   
   width: 100%;   

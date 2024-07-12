@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 // 개별 게임 소개
-export const EachGame = ({ title, index, checkbox, numbering }) => {
+export const EachGame = ({ game, index, checkbox, numbering }) => {
 const navigate = useNavigate();
 const [selectedGames, setSelectedGames] = useState([]);
 
@@ -29,53 +29,58 @@ const handleDeleteGame = (gameName) => {
   return (
   // TODO : 버튼 누르고 선택 후 이동하도록 수정
     <Container>
-      {checkbox && (
-        <CheckboxButton
-        isSelected={selectedGames.includes('GameTitle')}
-        onClick={() => handleAddGame('GameTitle')}>
-        ✓
-        </CheckboxButton>
-      )}
-      {numbering && (
-        <Number>{ index }</Number>
-      )}
-      <ImageContainer></ImageContainer>
-      <TextContainer>
-      <InformationContainer>
-        <TitleContainer onClick={handleClick}>
-          <H3>{ title }</H3>
-        </TitleContainer>
-        <DifficultyContainer>
-          <FaFire style={{ fontSize: '15px', color: 'red' }} />
-        </DifficultyContainer>
-      </InformationContainer>
-      <InformationContainer>
-        <H4>A description of the game</H4>
-      </InformationContainer>
-      </TextContainer>
-      <ButtonContainer>
-      {checkbox ? (
-        <DeleteButton
-        onClick={()=> handleDeleteGame('GameTitle')}>
-        X
-        </DeleteButton>
-      ): (
-        (!numbering &&
-          <AddButton
-          isSelected={selectedGames.includes('GameTitle')}
-          onClick={() => handleAddGame('GameTitle')}
+      {game &&
+      <>
+        {checkbox && (
+          <CheckboxButton
+            isSelected={selectedGames.includes(game.game_name)}
+            onClick={() => handleAddGame(game.game_name)}
           >
-          {selectedGames.includes('GameTitle') ? '✓' : '+'}
-          </AddButton>
-        )
-      )}
-      </ButtonContainer>
+          ✓
+          </CheckboxButton>
+        )}
+        {numbering && (
+          <Number>{ index }</Number>
+        )}
+        <ImageContainer></ImageContainer>
+        <TextContainer>
+        <InformationContainer>
+          <TitleContainer onClick={handleClick}>
+            <H3>{ game.game_name }</H3>
+          </TitleContainer>
+          <DifficultyContainer>
+            <FaFire style={{ fontSize: '15px', color: 'red' }} />
+          </DifficultyContainer>
+        </InformationContainer>
+        <InformationContainer>
+          <H4>{game.game_intro}</H4>
+        </InformationContainer>
+        </TextContainer>
+        <ButtonContainer>
+        {checkbox ? (
+          <DeleteButton
+          onClick={()=> handleDeleteGame('GameTitle')}>
+          X
+          </DeleteButton>
+        ): (
+          (!numbering &&
+            <AddButton
+            isSelected={selectedGames.includes('GameTitle')}
+            onClick={() => handleAddGame('GameTitle')}
+            >
+            {selectedGames.includes('GameTitle') ? '✓' : '+'}
+            </AddButton>
+          )
+        )}
+        </ButtonContainer>
+      </>
+      }  
     </Container>
   );
 };
 
 const Container = styled.div`
-  // background-color: green;   
+  background-color: green;
   position: relative;   
   width: 90vw;   
   height: 13vw;   
