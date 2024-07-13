@@ -58,7 +58,18 @@ const GameDetail = () => {
         {selected === 'rule' ? (
           <GameRules game={game}/>
         ) : (
-          <GameMedia>게임 미디어 내용...</GameMedia>
+          <>
+            {game.game_video ? (
+
+              <video width="100%" height="auto" controls>
+                <source src={game.game_video} type="video/mp4" />
+                영상을 재생할 수 없습니다.
+              </video>
+
+            ) : (
+              <H4>참고 영상이 없습니다.</H4>
+            )}
+          </>
         )}
       </GameInfoTab>
       {/* </>
@@ -150,4 +161,10 @@ const TabButton = styled.button`
 
 const GameMedia = styled.div`
   height: 20vw;
+`
+
+const H4 = styled.h4`
+  color: #222222;
+  font-size: 14px;
+  margin: 3% 0 0 0;
 `
