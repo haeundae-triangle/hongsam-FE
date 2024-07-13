@@ -3,18 +3,21 @@ import styled from 'styled-components'
 import { EachGameList } from './EachGameList';
 
 // 게임 리스트 소개
-export const GameLists = () => {
+export const GameLists = ( props ) => {
+  const { info } = props;
+
+  console.log(info);
+
   // 각 게임 리스트 카드 보여주기
   return (
     <Container>
       <TitleContainer>
-        <H2>지금 우리 학교는?</H2>
+        <H2>홍삼이 추천하는 게임박스</H2>
       </TitleContainer>
       <EachGameLists>
-        <EachGameList />
-        <EachGameList />
-        {/* <EachGameList />
-        <EachGameList /> */}
+      {info.length > 0 && info.map((box) => 
+        <EachGameList key={box.playlist_id} info={box}/>
+      )}
       </EachGameLists>
     </Container>
   );
