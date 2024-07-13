@@ -9,7 +9,7 @@ const navigate = useNavigate();
 const [selectedGames, setSelectedGames] = useState([]);
 
 const handleClick = () => {
-  navigate('/GameDetail')
+  navigate(`/GameDetail?gameId=${game.game_id}`);
 };
 
 const handleAddGame = (gameName) => {
@@ -27,7 +27,6 @@ const handleDeleteGame = (gameName) => {
 }
 
   return (
-  // TODO : 버튼 누르고 선택 후 이동하도록 수정
     <Container>
       {game &&
       <>
@@ -80,7 +79,7 @@ const handleDeleteGame = (gameName) => {
 };
 
 const Container = styled.div`
-  background-color: green;
+  // background-color: green;
   position: relative;   
   width: 90vw;   
   height: 13vw;   
@@ -113,7 +112,7 @@ const Number = styled.h4`
 const ImageContainer = styled.div`
   background-color: #686868;   
   width: 18vw;   
-  height: 13vw;
+  height: 14vw;
 `
 
 const TextContainer = styled.div`
