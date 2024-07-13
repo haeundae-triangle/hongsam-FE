@@ -28,13 +28,13 @@ const useFetchTop10 = () => {
     fetchTop10Games();
   }, []);
 
-  // 디버깅 용도로 JSON 데이터 로그
-  useEffect(() => {
-    if (top10Games.length > 0) {
-      const jsonString = JSON.stringify(top10Games, null, 2);
-      console.log('Top 10 게임 (포맷된 JSON):', jsonString);
-    }
-  }, [top10Games]);
+  // 디버깅
+  // useEffect(() => {
+  //   if (top10Games.length > 0) {
+  //     const jsonString = JSON.stringify(top10Games, null, 2);
+  //     console.log('Top 10 게임 (포맷된 JSON):', jsonString);
+  //   }
+  // }, [top10Games]);
 
 
   return {

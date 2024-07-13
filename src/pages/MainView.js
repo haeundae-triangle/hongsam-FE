@@ -7,16 +7,17 @@ import { GameLists } from '../components/Main/GameLists';
 import { GameFilter } from '../components/Main/GameFilter';
 import BottomNavigationBar from '../components/BottomNavigationBar';
 import styled from 'styled-components';
+import useFetchServiceGameBoxes from '../hooks/useFetchServiceGameBoxes';
 
 //NOTE - 샘플 이미지
 import sampleImage1 from '../assets/sampleImage1.jpg';
 import sampleImage2 from '../assets/sampleImage2.jpg';
 import sampleImage3 from '../assets/sampleImage3.jpg';
 
-
 const MainView = () => {
     const [bannerSlides, setBannerSlide] = useState([]);
     const [userInput, setUserInput] = useState('');
+    const { serviceBoxes, error, isLoading } = useFetchServiceGameBoxes();
 
     const getBannerSlide = () => {
         //TODO - API Call 구현 완료 후 배너 광고 가져오기
@@ -43,7 +44,7 @@ const MainView = () => {
         />
         <GameFilter />
         <GameListBanner />
-        <GameLists />
+        <GameLists info={serviceBoxes}/>
         <BottomNavigationBar />
       </Container>
     );
