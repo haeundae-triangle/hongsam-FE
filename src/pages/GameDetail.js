@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom'; // gameID 받기
 import React from 'react';
 import styled from 'styled-components'
 import { AiOutlinePlus, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai';
@@ -6,44 +7,63 @@ import { AiOutlinePlus, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai
 import ToolbarTopSide from "../components/ToolbarTopside";
 import { GameRules } from '../components/GameRules';
 
+// import useFetchEachGameInfo from '../hooks/useFetchEachGameInfo';
+import fetchEachGameInfo from '../gameAPI/fetchEachGameInfo';
+
 
 const GameDetail = () => {
+  const [searchParams] = useSearchParams();
+  const gameId = searchParams.get('gameId');
+  const [game, setGame] = useState([]);
+
+  useEffect (() => {
+    if (gameId) {
+      fetchEachGameInfo(gameId)
+        .then((gameInfo) => setGame(gameInfo))
+        .catch((error) => console.error('error :', error.message));
+    }
+  }, [gameId])
+
   const [selected, setSelected] = useState('rule')
 
   return (
-  <Container>
-    <ToolbarTopSide />
-    <PictureContainer></PictureContainer>
-    <InformationContainer>
-      <H2>Game Title</H2>
-      <H3>A description of the game</H3>
-      {/* 게임 정보 추가 제공 */}
-    </InformationContainer>
-    <IconContainer>
-      <EachIconContainer>
-        <AiOutlinePlus style={{ color: '#f3f3f3', fontSize: '42px' }}/>
-        <H5>내 리스트에 추가</H5>
-      </EachIconContainer>
-      <EachIconContainer>
-        <AiOutlineHeart style={{ color: '#f3f3f3', fontSize: '42px' }} />
-        <H5>좋아요</H5>
-      </EachIconContainer>
-      <EachIconContainer>
-        <AiOutlineShareAlt style={{ color: '#f3f3f3', fontSize: '42px' }}/>
-        <H5>친구에게 공유</H5>
-      </EachIconContainer>
-    </IconContainer>
-    <GameInfoTab>
-      <TabButton onClick={() => setSelected('rule')} selected={selected === 'rule'}>게임방식</TabButton>
-      <TabButton onClick={() => setSelected('media')} selected={selected === 'media'}>참고영상</TabButton>
-      {/* 조건부 렌더링 */}
-      {selected === 'rule' ? (
-        <GameRules />
-      ) : (
-        <GameMedia>게임 미디어 내용...</GameMedia>
-      )}
-    </GameInfoTab>
-  </Container>
+    <Container>
+      {/* {gameId &&
+      <> */}
+        <ToolbarTopSide />
+      <PictureContainer></PictureContainer>
+      <InformationContainer>
+        <H2>{game.game_name}</H2>
+        <H3>{game.game_feature}</H3>
+        {/* 게임 정보 추가 제공 */}
+      </InformationContainer>
+      <IconContainer>
+        <EachIconContainer>
+          <AiOutlinePlus style={{ color: '#f3f3f3', fontSize: '42px' }}/>
+          <H5>내 리스트에 추가</H5>
+        </EachIconContainer>
+        <EachIconContainer>
+          <AiOutlineHeart style={{ color: '#f3f3f3', fontSize: '42px' }} />
+          <H5>좋아요</H5>
+        </EachIconContainer>
+        <EachIconContainer>
+          <AiOutlineShareAlt style={{ color: '#f3f3f3', fontSize: '42px' }}/>
+          <H5>친구에게 공유</H5>
+        </EachIconContainer>
+      </IconContainer>
+      <GameInfoTab>
+        <TabButton onClick={() => setSelected('rule')} selected={selected === 'rule'}>게임방식</TabButton>
+        <TabButton onClick={() => setSelected('media')} selected={selected === 'media'}>참고영상</TabButton>
+        {/* 조건부 렌더링 */}
+        {selected === 'rule' ? (
+          <GameRules info={game}/>
+        ) : (
+          <GameMedia>게임 미디어 내용...</GameMedia>
+        )}
+      </GameInfoTab>
+      {/* </>
+      } */}
+    </Container>
   );
 }
 
