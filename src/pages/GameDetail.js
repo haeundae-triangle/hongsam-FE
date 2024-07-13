@@ -56,7 +56,7 @@ const GameDetail = () => {
         <TabButton onClick={() => setSelected('media')} selected={selected === 'media'}>참고영상</TabButton>
         {/* 조건부 렌더링 */}
         {selected === 'rule' ? (
-          <GameRules info={game}/>
+          <GameRules game={game}/>
         ) : (
           <GameMedia>게임 미디어 내용...</GameMedia>
         )}
