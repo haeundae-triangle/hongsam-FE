@@ -3,15 +3,6 @@ import styled from 'styled-components'
 
 export const GameRules = (props) => {
   const { game } = props;
-  const intro = game.game_intro;
-  const rules = game.game_rule
-
-  console.log(intro);
-  console.log(rules);
-  
-
-  if (!game) return null;
-  console.log(game);
 
   return (
     <Container>
@@ -23,11 +14,10 @@ export const GameRules = (props) => {
       </IntroContainer>
       <RulesContainer>
         <H3>게임 룰</H3>
-        {rules && rules.length > 0 &&
-          rules.map((rule) => (
+        {game.game_rule?.map((rule) => (
           <ContentsContainer>
-          <H4>Stage {rule.stage} : {rule.description}</H4>
-        </ContentsContainer>
+            <H4>Stage {rule.stage} : {rule.description}</H4>
+          </ContentsContainer>
         ))}
       </RulesContainer>
     </Container>
