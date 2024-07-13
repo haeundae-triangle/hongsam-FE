@@ -28,9 +28,9 @@ const GameDetail = () => {
 
   return (
     <Container>
-      {/* {gameId &&
-      <> */}
-        <ToolbarTopSide />
+      {game &&
+      <>
+      <ToolbarTopSide />
       <PictureContainer></PictureContainer>
       <InformationContainer>
         <H2>{game.game_name}</H2>
@@ -59,21 +59,19 @@ const GameDetail = () => {
           <GameRules game={game}/>
         ) : (
           <>
-            {game.game_video ? (
-
-              <video width="100%" height="auto" controls>
-                <source src={game.game_video} type="video/mp4" />
-                영상을 재생할 수 없습니다.
-              </video>
-
-            ) : (
-              <H4>참고 영상이 없습니다.</H4>
-            )}
+          {game.game_video ? (
+            <video width="100%" height="auto" controls>
+              <source src={game.game_video} type="video/mp4" />
+              영상을 재생할 수 없습니다.
+            </video>
+          ) : (
+            <H4>참고 영상이 없습니다.</H4>
+          )}
           </>
         )}
       </GameInfoTab>
-      {/* </>
-      } */}
+      </>
+      }
     </Container>
   );
 }
@@ -94,18 +92,6 @@ const InformationContainer = styled.div`
   padding: 1% 6%;
 `
 
-const H2 = styled.h2`
-  color: white;
-  font-size: 25px;
-  margin: 3% 0;
-`;
-
-const H3 = styled.h4`
-  color: #f3f3f3;
-  font-size: 16px;
-  margin: 0;
-`
-
 const IconContainer = styled.div`
   height: 100px;
   padding: 1% 15%;
@@ -118,12 +104,6 @@ const IconContainer = styled.div`
 const EachIconContainer = styled.div`
   width: 25%;
   text-align: center;
-`
-
-const H5 = styled.h5`
-  font-size: 12px;
-  color: #f3f3f3;
-  margin: 10% 0 0 0;
 `
 
 const GameInfoTab = styled.div`
@@ -158,13 +138,27 @@ const TabButton = styled.button`
   `}
 `;
 
+// 글씨
+const H2 = styled.h2`
+  color: white;
+  font-size: 25px;
+  margin: 3% 0;
+`;
 
-const GameMedia = styled.div`
-  height: 20vw;
+const H3 = styled.h4`
+  color: #f3f3f3;
+  font-size: 16px;
+  margin: 0;
 `
 
 const H4 = styled.h4`
   color: #222222;
   font-size: 14px;
   margin: 3% 0 0 0;
+`
+
+const H5 = styled.h5`
+  font-size: 12px;
+  color: #f3f3f3;
+  margin: 10% 0 0 0;
 `

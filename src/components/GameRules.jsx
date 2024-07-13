@@ -3,24 +3,23 @@ import styled from 'styled-components'
 
 export const GameRules = (props) => {
   const { game } = props;
+
   return (
     <Container>
       <IntroContainer>
-      <H3>인트로</H3>
-      <ContentsContainer>
-        {/* <H4>인트로 내용 적기</H4> */}
-        <H4>{game.game_intro}</H4>
-      </ContentsContainer>
-    </IntroContainer>
-    <RulesContainer>
-      <H3>게임 룰</H3>
-      {game.game_rule.map((rule, index) => (
+        <H3>인트로</H3>
         <ContentsContainer>
-        <H4>Stage {rule.stage} : {rule.description}</H4>
-      </ContentsContainer>
-      ))}
-      
-    </RulesContainer>
+          <H4>{game.game_intro}</H4>
+        </ContentsContainer>
+      </IntroContainer>
+      <RulesContainer>
+        <H3>게임 룰</H3>
+        {game.game_rule?.map((rule) => (
+          <ContentsContainer>
+            <H4>Stage {rule.stage} : {rule.description}</H4>
+          </ContentsContainer>
+        ))}
+      </RulesContainer>
     </Container>
   );
 };
