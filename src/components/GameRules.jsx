@@ -1,22 +1,26 @@
 import React from 'react';
 import styled from 'styled-components'
 
-export const GameRules = () => {
-
+export const GameRules = (props) => {
+  const { game } = props;
   return (
     <Container>
       <IntroContainer>
-        <H3>인트로</H3>
+      <H3>인트로</H3>
+      <ContentsContainer>
+        {/* <H4>인트로 내용 적기</H4> */}
+        <H4>{game.game_intro}</H4>
+      </ContentsContainer>
+    </IntroContainer>
+    <RulesContainer>
+      <H3>게임 룰</H3>
+      {game.game_rule.map((rule, index) => (
         <ContentsContainer>
-          <H4>인트로 내용 적기</H4>
-        </ContentsContainer>
-      </IntroContainer>
-      <RulesContainer>
-        <H3>게임 룰</H3>
-        <ContentsContainer>
-          <H4>게임 룰 내용 적기</H4>
-        </ContentsContainer>
-      </RulesContainer>
+        <H4>Stage {rule.stage} : {rule.description}</H4>
+      </ContentsContainer>
+      ))}
+      
+    </RulesContainer>
     </Container>
   );
 };
@@ -49,6 +53,7 @@ const ContentsContainer = styled.div`
   justify-content: center;
   height: auto;
   padding: 1% 3% 4% 3%;
+  margin: 0 0 5% 0;
   background-color: #f8f8f8;
   border-radius: 5px;
 `
