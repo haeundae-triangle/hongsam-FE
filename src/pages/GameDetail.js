@@ -31,7 +31,10 @@ const GameDetail = () => {
       {game &&
       <>
       <ToolbarTopSide />
-      <PictureContainer></PictureContainer>
+      {/* <GameImage src={`/assets/GameImage/${gameId}.png`} alt={game.game_name}/> */}
+      <PictureContainer>
+        <GameImage src={`assets/GameImage/${gameId}.png`} alt={game.game_name}/> 
+      </PictureContainer>
       <InformationContainer>
         <H2>{game.game_name}</H2>
         <H3>{game.game_feature}</H3>
@@ -83,8 +86,13 @@ const Container = styled.div`
 `
 
 const PictureContainer = styled.div`
-  height: 260px;
-  background-color: red;
+  display: flex;
+  justify-content: center;
+`
+
+const GameImage = styled.img`
+  // width: 90%;
+  width: 100%;
 `
 
 const InformationContainer = styled.div`
