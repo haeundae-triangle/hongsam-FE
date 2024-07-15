@@ -22,6 +22,13 @@ const handleAddGame = (gameName) => {
   });
 };
 
+// 게임 난이도 아이콘
+const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) => (
+  <DifficultyIcon key={index}>
+    <FaFire style={{ fontSize: '15px', color: 'red' }} />
+  </DifficultyIcon>
+));
+
 const handleDeleteGame = (gameName) => {
   setSelectedGames((prevGames) => prevGames.filter(g => g !== gameName))
 }
@@ -49,8 +56,11 @@ const handleDeleteGame = (gameName) => {
           <TitleContainer onClick={handleClick}>
             <H3>{ game.game_name }</H3>
           </TitleContainer>
-          <DifficultyContainer>
+          {/* <DifficultyContainer>
             <FaFire style={{ fontSize: '15px', color: 'red' }} />
+          </DifficultyContainer> */}
+          <DifficultyContainer>
+            {difficultyIcons}
           </DifficultyContainer>
         </InformationContainer>
         <InformationContainer>
@@ -155,10 +165,16 @@ const H4 = styled.h4`
 `
 
 const DifficultyContainer = styled.div`
-  // background-color: gray;   
+  // background-color: gray;
+  display: flex;
+  flex-direction: row; 
   width: auto;
-  margin: 0 2%;
+  margin: 0 3%;
 `
+
+const DifficultyIcon = styled.div`
+  margin-right: 1px;
+`;
 
 const ButtonContainer = styled.div`
   display: flex;   
