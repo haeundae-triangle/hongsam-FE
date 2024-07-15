@@ -1,5 +1,5 @@
 // import { useEffect, useState } from 'react';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import { AiOutlinePlus, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai';
 
@@ -7,8 +7,22 @@ import ToolbarTopSide from "../components/ToolbarTopside";
 import { SearchBar } from "../components/SearchBar";
 import { Games } from "../components/Main/Games"
 
+import { useSearchParams } from 'react-router-dom';
+import fetchEachServiceBoxInfo from '../gameAPI/fetchEachServiceBoxInfo';
+
 
 const GameListDetail = () => {
+  const [searchParams] = useSearchParams();
+  const boxId = searchParams.get('boxId');
+  const [box, setBox] = useState([]);
+
+  useEffect (() => {
+    if (boxId) {
+      fetchEachServiceBoxInfo(boxId)
+        .then((boxInfo) => setBox(boxInfo))
+        .catch((error) => console.error('error :', error.message));
+    }
+  }, [boxId])
 
   return (
   <Container>
