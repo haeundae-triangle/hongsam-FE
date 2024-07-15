@@ -41,7 +41,9 @@ const handleDeleteGame = (gameName) => {
         {numbering && (
           <Number>{ index }</Number>
         )}
-        <ImageContainer></ImageContainer>
+        <ImageContainer>
+          <GameImage src={`assets/GameImage/${game.game_id}.png`} alt={game.game_name}/> 
+        </ImageContainer>
         <TextContainer>
         <InformationContainer>
           <TitleContainer onClick={handleClick}>
@@ -115,6 +117,10 @@ const ImageContainer = styled.div`
   height: 14vw;
 `
 
+const GameImage = styled.img`
+  width: 100%;
+`
+
 const TextContainer = styled.div`
   // background-color: pink;   
   display: flex;   
@@ -133,7 +139,7 @@ const InformationContainer = styled.div`
 `
 
 const TitleContainer = styled.div`
-  width: 30%;
+  width: auto;
 
 `
  
@@ -150,7 +156,8 @@ const H4 = styled.h4`
 
 const DifficultyContainer = styled.div`
   // background-color: gray;   
-  width: 65%;
+  width: auto;
+  margin: 0 2%;
 `
 
 const ButtonContainer = styled.div`
