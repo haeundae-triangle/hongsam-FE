@@ -15,11 +15,15 @@ const GameDetail = () => {
   const [searchParams] = useSearchParams();
   const gameId = searchParams.get('gameId');
   const [game, setGame] = useState([]);
+  const [gameImage, setGameImage] = useState('');
 
   useEffect (() => {
     if (gameId) {
       fetchEachGameInfo(gameId)
-        .then((gameInfo) => setGame(gameInfo))
+        .then((gameInfo) => {
+          setGame(gameInfo)
+          setGameImage(`assets/GameImage/${gameId}.png`)
+        })
         .catch((error) => console.error('error :', error.message));
     }
   }, [gameId])
@@ -31,15 +35,16 @@ const GameDetail = () => {
       {game &&
       <>
       <ToolbarTopSide />
-      {/* <GameImage src={`/assets/GameImage/${gameId}.png`} alt={game.game_name}/> */}
       <PictureContainer>
-        <GameImage src={`assets/GameImage/${gameId}.png`} alt={game.game_name}/> 
+        <BackGroundImage src={gameImage} alt={game.game_name} />
+        <InfomationContainer>
+          <MainImage src={gameImage} alt={game.game_name} />
+          <TextInformationContainer>
+            <H2>{game.game_name}</H2>
+            <H3>{game.game_feature}</H3>
+          </TextInformationContainer>
+        </InfomationContainer>
       </PictureContainer>
-      <InformationContainer>
-        <H2>{game.game_name}</H2>
-        <H3>{game.game_feature}</H3>
-        {/* 게임 정보 추가 제공 */}
-      </InformationContainer>
       <IconContainer>
         <EachIconContainer>
           <AiOutlinePlus style={{ color: '#f3f3f3', fontSize: '42px' }}/>
@@ -88,16 +93,38 @@ const Container = styled.div`
 const PictureContainer = styled.div`
   display: flex;
   justify-content: center;
+  height: 20rem;
+  overflow: hidden;
+  position: relative;
 `
 
-const GameImage = styled.img`
-  // width: 90%;
+const BackGroundImage = styled.img`
   width: 100%;
+  object-fit: cover; // 자르기
+  object-position: center; // 확인 필요
+  filter: blur(5px) brightness(0.8);
+  position: absolute;
 `
 
-const InformationContainer = styled.div`
+const InfomationContainer = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 100%;
+  // background-color: red;
+  padding: 0 0 3% 4%;
+`
+
+const MainImage = styled.img`
+  width: 100px;
+  height: 100px;
+`
+
+const TextInformationContainer = styled.div`
   height: auto;
   padding: 1% 6%;
+  aling-items: flex-end;
 `
 
 const IconContainer = styled.div`
