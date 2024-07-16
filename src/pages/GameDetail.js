@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'; // gameID 받기
 import React from 'react';
 import styled from 'styled-components'
 import { AiOutlinePlus, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai';
+import { FaFire } from 'react-icons/fa';
 
 import ToolbarTopSide from "../components/ToolbarTopside";
 import { GameRules } from '../components/GameRules';
@@ -30,6 +31,13 @@ const GameDetail = () => {
 
   const [selected, setSelected] = useState('rule')
 
+  // 게임 난이도 아이콘
+  const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) => (
+    <DifficultyIcon key={index}>
+      <FaFire style={{ fontSize: '15px', color: 'red' }} />
+    </DifficultyIcon>
+  ));
+
   return (
     <Container>
       {game &&
@@ -38,11 +46,22 @@ const GameDetail = () => {
       <PictureContainer>
         <BackGroundImage src={gameImage} alt={game.game_name} />
         <InfomationContainer>
-          <MainImage src={gameImage} alt={game.game_name} />
+          <VerticalContainer>
+            <MainImage src={gameImage} alt={game.game_name} />
+            <DifficultyContainer>
+              {/* <H5>난이도 :{difficultyIcons}</H5> */}
+              <H5>난이도 : </H5>
+              {difficultyIcons}
+            </DifficultyContainer>
+          </VerticalContainer>
           <TextInformationContainer>
             <H2>{game.game_name}</H2>
             <H3>{game.game_feature}</H3>
+            <EtcInfomationContainer>
+              <H5>게임 분류 : {game.game_category}</H5>
+            </EtcInfomationContainer>
           </TextInformationContainer>
+          
         </InfomationContainer>
       </PictureContainer>
       <IconContainer>
@@ -116,9 +135,13 @@ const InfomationContainer = styled.div`
   padding: 0 0 3% 4%;
 `
 
+const VerticalContainer = styled.div`
+  flex-directrion: column;
+`
+
 const MainImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 6rem;
+  height: 6rem;
 `
 
 const TextInformationContainer = styled.div`
@@ -127,9 +150,25 @@ const TextInformationContainer = styled.div`
   aling-items: flex-end;
 `
 
+const DifficultyContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+`
+
+const DifficultyIcon = styled.div`
+  margin: 0 2%
+`;
+
+const EtcInfomationContainer = styled.div`
+  display: row;
+  width: auto;
+`
+
 const IconContainer = styled.div`
   height: 100px;
-  padding: 1% 15%;
+  padding: 2% 15%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,8 +176,11 @@ const IconContainer = styled.div`
 `
 
 const EachIconContainer = styled.div`
-  width: 25%;
+  width: 30%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const GameInfoTab = styled.div`
@@ -180,7 +222,7 @@ const H2 = styled.h2`
   margin: 3% 0;
 `;
 
-const H3 = styled.h4`
+const H3 = styled.h3`
   color: #f3f3f3;
   font-size: 16px;
   margin: 0;
@@ -195,5 +237,5 @@ const H4 = styled.h4`
 const H5 = styled.h5`
   font-size: 12px;
   color: #f3f3f3;
-  margin: 10% 0 0 0;
+  margin: 2% 0 0 0;
 `
