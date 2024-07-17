@@ -25,7 +25,10 @@ const GameDetail = () => {
           setGame(gameInfo)
           setGameImage(`assets/GameImage/${gameId}.png`)
         })
-        .catch((error) => console.error('error :', error.message));
+        .catch((error) => console.error('error :', error.message))
+        .finally(() => {
+          window.scrollTo(0, 0);
+        });
     }
   }, [gameId])
 
