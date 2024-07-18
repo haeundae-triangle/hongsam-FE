@@ -1,4 +1,5 @@
 import { ADD_GAME } from "../actions";
+import { REMOVE_GAME } from "../actions";
 
 const initialState = {
   savedGames: [],
@@ -11,6 +12,11 @@ const gameReducer = (state = initialState, action) => {
       return {
         ...state,
         savedGames: [...state.savedGames, action.payload],
+      };
+    case REMOVE_GAME:
+      return {
+        ...state,
+        savedGames: state.savedGames.filter(game => game.game_id !== action.payload),
       };
     default:
       console.log("리듀서에서 액션 타입 = ", action.type);
