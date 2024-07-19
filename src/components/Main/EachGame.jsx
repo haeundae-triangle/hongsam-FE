@@ -2,25 +2,38 @@ import React, { useState } from 'react';
 import { FaFire } from 'react-icons/fa';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addGame, removeGame } from '../../redux/actions';
 
 // 개별 게임 소개
 export const EachGame = ({ game, index, checkbox, numbering }) => {
 const navigate = useNavigate();
+const dispatch = useDispatch();
+
 const [selectedGames, setSelectedGames] = useState([]);
 
-const handleClick = () => {
+const handleGoDetail = () => {
   navigate(`/GameDetail?gameId=${game.game_id}`);
 };
 
-const handleAddGame = (gameName) => {
-  setSelectedGames((prevGames) => {
-    if (prevGames.includes(gameName)) {
-      return prevGames.filter(g => g !== gameName);
-    } else {
-      return [...prevGames, gameName]
-    }
-  });
+const handleButtonClick = () => {
+  if (selectedGames.includes(game.game_id)) {
+    handleRemoveGame(game.game_id);
+  } else {
+    handleAddGame(game.game_id);
+  }
 };
+
+const handleAddGame = (gameId) => {
+  setSelectedGames(prevGames => [...prevGames, gameId]);
+  dispatch(addGame(game));
+};
+
+const handleRemoveGame = (gameId) => {
+  setSelectedGames(prevGames => prevGames.filter(g => g !== gameId));
+  dispatch(removeGame(gameId));
+};
+
 
 // 게임 난이도 아이콘
 const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) => (
@@ -29,18 +42,14 @@ const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) 
   </DifficultyIcon>
 ));
 
-const handleDeleteGame = (gameName) => {
-  setSelectedGames((prevGames) => prevGames.filter(g => g !== gameName))
-}
-
   return (
     <Container>
       {game &&
       <>
         {checkbox && (
           <CheckboxButton
-            isSelected={selectedGames.includes(game.game_name)}
-            onClick={() => handleAddGame(game.game_name)}
+            isSelected={selectedGames.includes(game.game_id)}
+            onClick={() => handleButtonClick(game.game_id)}
           >
           ✓
           </CheckboxButton>
@@ -49,16 +58,13 @@ const handleDeleteGame = (gameName) => {
           <Number>{ index }</Number>
         )}
         <ImageContainer>
-          <GameImage src={`assets/GameImage/${game.game_id}.png`} alt={game.game_name}/> 
+          <GameImage src={`assets/GameImage/${game.game_id}.png`} alt={game.game_id}/> 
         </ImageContainer>
         <TextContainer>
         <InformationContainer>
-          <TitleContainer onClick={handleClick}>
+          <TitleContainer onClick={handleGoDetail}>
             <H3>{ game.game_name }</H3>
           </TitleContainer>
-          {/* <DifficultyContainer>
-            <FaFire style={{ fontSize: '15px', color: 'red' }} />
-          </DifficultyContainer> */}
           <DifficultyContainer>
             {difficultyIcons}
           </DifficultyContainer>
@@ -70,16 +76,16 @@ const handleDeleteGame = (gameName) => {
         <ButtonContainer>
         {checkbox ? (
           <DeleteButton
-          onClick={()=> handleDeleteGame('GameTitle')}>
+          onClick={()=> handleButtonClick('GameTitle')}>
           X
           </DeleteButton>
         ): (
           (!numbering &&
             <AddButton
-            isSelected={selectedGames.includes('GameTitle')}
-            onClick={() => handleAddGame('GameTitle')}
+            isSelected={selectedGames.includes(game.game_id)}
+            onClick={() => handleButtonClick(game.game_id)}
             >
-            {selectedGames.includes('GameTitle') ? '✓' : '+'}
+            {selectedGames.includes(game.game_id) ? '✓' : '+'}
             </AddButton>
           )
         )}
