@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components'
 import { Games } from './Games'
+import useFetchTop10 from '../../hooks/useFetchTop10';
 
 // 게임 소개
 export const GameFilter = () => {
+  const { top10Games, error, isLoading } = useFetchTop10();
   const [listTag, setListTag] = useState('노래 부르는 게임')
   const listTags = ['노래 부르는 게임', '아이엠 그라운드 게임', '운빨게임',
    '두뇌 게임', '순발력 게임', '한명 죽이기 게임', '웃음 참기 게임']
@@ -15,7 +17,7 @@ export const GameFilter = () => {
           <Tag key={index} isSelected={listTag === tag} onClick={() => setListTag(tag)}>{tag}</Tag>
         ))}
       </TagContianer>
-      <Games title={listTag}></Games>
+      <Games games={top10Games} title={listTag} />
     </Container>
   );
 };
