@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import styled from 'styled-components';
 import { FaHome, FaCompass, FaBoxOpen } from 'react-icons/fa';
@@ -10,6 +11,7 @@ const BottomNavigationBar = () => {
   const [isModal, setIsModal] = useState(false);
 
   const navigate = useNavigate();
+  const games = useSelector((state) => state.games.savedGames);
 
   const openModal = () => {
     setIsModal(true);
@@ -43,7 +45,11 @@ const BottomNavigationBar = () => {
           <H5>탐색</H5>
         </NavItem>
         <NavItem onClick={() => handleClick('GameBox')} isSelected={selectedPage === 'GameBox'}>
-          <FaBoxOpen size={22} />
+          <IconWrapper>
+            <FaBoxOpen size={22} />
+            {games.length > 0 && <Badge>{games.length}</Badge>}
+          </IconWrapper>
+
           <H5>게임박스</H5>
         </NavItem>
       </NavContainer>
@@ -83,6 +89,29 @@ const NavItem = styled.div`
   svg {
     color: ${({ isSelected }) => (isSelected ? '#645FFF' : '#f8f8f8')};
   }
+`;
+
+const IconWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Badge = styled.div`
+  display: flex;
+  position: absolute;
+  top: -0.3rem;
+  right: -0.5rem;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
 `;
 
 const H5 = styled.h5`
