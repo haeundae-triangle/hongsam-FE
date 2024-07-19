@@ -7,7 +7,8 @@ import { Games } from "../components/Main/Games"
 import styled from 'styled-components';
 
 const GameBox = () => {
-const selectedList = useSelector((state) => state.games.savedGames);
+const savedList = useSelector((state) => state.games.savedGames);
+const selectedList = useSelector((state) => state.games.selectedGames);
 
 
 const navigate = useNavigate();
@@ -16,14 +17,14 @@ const handleClick = () => {
 };
 
 // 모든 게임 seletedList에 추가할 함수
-const handleAddAllGame = () => {}
+const handleCheckAllGame = () => {}
 
 return (
   <Container>
     <ContentsContainer>
       <TopBar title={"게임 박스"} brief={"내가 고른 게임들을 친구들과 공유해봐요"}/>
       <GameContainer>
-        <Games games={selectedList} checkbox={true}/>
+        <Games games={savedList} checkbox={true}/>
       </GameContainer>
     </ContentsContainer>
     <>
