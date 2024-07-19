@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { EachGame } from './EachGame';
 
 export const Games = ({ games, title, brief, checkbox, numbering }) => {
-
+  
   return (
     <Container>
       {!checkbox && (
@@ -15,7 +15,6 @@ export const Games = ({ games, title, brief, checkbox, numbering }) => {
       <EachGameContainer>
         {games && (games.map((game, index) => (
             <EachGame
-              // key={game.game.id || index}
               key={game.game_id}
               index={index + 1}
               game={game}
@@ -26,20 +25,15 @@ export const Games = ({ games, title, brief, checkbox, numbering }) => {
           )))
         };
       </EachGameContainer>
-      {/* <EachGameContainer>
-        {games.map((game, index) => (
-          <EachGame key={index} index={index + 1} title={game} checkbox={checkbox} numbering={numbering}/>
-        ))}
-      </EachGameContainer> */}
     </Container>
   );
 };
 
 const Container = styled.div`
-  // background-color: red;
   position: relative;
   width: 100vw;
-  height: auto;;
+  height: auto;
+  margin: 2% 0 -2% 0;
 `
 
 const TitleContainer = styled.div`
@@ -61,5 +55,5 @@ const EachGameContainer = styled.div`
   display: flex;   
   flex-direction: column;   
   width: 100%;   
-  height: auto;;
+  height: auto;
 `  
