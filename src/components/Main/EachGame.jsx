@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaFire } from 'react-icons/fa';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addGame, removeGame } from '../../redux/actions';
+import { addGame, removeGame, selectGame } from '../../redux/actions';
 
 // 개별 게임 소개
 export const EachGame = ({ game, index, checkbox, numbering }) => {
 const navigate = useNavigate();
 const dispatch = useDispatch();
 
-const [selectedGames, setSelectedGames] = useState([]);
+const [inBoxGames, setInBoxGames] = useState([]);
 
 const handleGoDetail = () => {
   navigate(`/GameDetail?gameId=${game.game_id}`);
 };
 
 const handleButtonClick = () => {
-  if (selectedGames.includes(game.game_id)) {
+  if (inBoxGames.includes(game.game_id)) {
     handleRemoveGame(game.game_id);
   } else {
     handleAddGame(game.game_id);
@@ -25,15 +25,23 @@ const handleButtonClick = () => {
 };
 
 const handleAddGame = (gameId) => {
-  setSelectedGames(prevGames => [...prevGames, gameId]);
+  setInBoxGames(prevGames => [...prevGames, gameId]);
   dispatch(addGame(game));
 };
 
 const handleRemoveGame = (gameId) => {
-  setSelectedGames(prevGames => prevGames.filter(g => g !== gameId));
+  setInBoxGames(prevGames => prevGames.filter(g => g !== gameId));
   dispatch(removeGame(gameId));
 };
 
+const handleCheckBoxClick = () => {
+  if (inBoxGames.includes(game.game_id)) {
+    setInBoxGames(prevGames => prevGames.filter(g => g !== game.game_id));
+  } else {
+    setInBoxGames(prevGames => [...prevGames, game.game_id]);
+  }
+  dispatch(selectGame(game))
+}
 
 // 게임 난이도 아이콘
 const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) => (
@@ -48,8 +56,8 @@ const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) 
       <>
         {checkbox && (
           <CheckboxButton
-            isSelected={selectedGames.includes(game.game_id)}
-            onClick={() => handleButtonClick(game.game_id)}
+            isSelected={inBoxGames.includes(game.game_id)}
+            onClick={() => handleCheckBoxClick(game.game_id)}
           >
           ✓
           </CheckboxButton>
@@ -76,16 +84,16 @@ const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) 
         <ButtonContainer>
         {checkbox ? (
           <DeleteButton
-          onClick={()=> handleButtonClick('GameTitle')}>
-          X
+            onClick={()=> handleRemoveGame(game.game_id)}>
+            X
           </DeleteButton>
         ): (
-          (!numbering &&
+          (!numbering && !checkbox &&
             <AddButton
-            isSelected={selectedGames.includes(game.game_id)}
+            isSelected={inBoxGames.includes(game.game_id)}
             onClick={() => handleButtonClick(game.game_id)}
             >
-            {selectedGames.includes(game.game_id) ? '✓' : '+'}
+            {inBoxGames.includes(game.game_id) ? '✓' : '+'}
             </AddButton>
           )
         )}
