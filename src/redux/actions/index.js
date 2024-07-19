@@ -7,9 +7,9 @@ export const addGame = (game) => ({
   payload: game,
 });
 
-export const selectGame = (gameId) => ({
+export const selectGame = (game) => ({
   type: SELECT_GAME,
-  payload: gameId,
+  payload: game,
 });
 
 export const removeGame = (gameId) => ({

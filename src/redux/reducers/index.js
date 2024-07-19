@@ -21,17 +21,13 @@ const gameReducer = (state = initialState, action) => {
       // console.log("ADD_GAME 액션 페이로드 = ", action.payload);
       case SELECT_GAME:
         const isGameAlreadySelected = state.selectedGames.some(game => game.game_id === action.payload.game_id);
-        if (!isGameAlreadySelected) {
-          return {
-            ...state,
-            selectedGames: [...state.selectedGames, action.payload],
-          };
-        } else {
-          return {
-            ...state,
-            selectedGames: state.selectedGames.filter(game => game.game_id !== action.payload),
-          }
-        }
+        
+        return {
+          ...state,
+          selectedGames: isGameAlreadySelected
+            ? state.selectedGames.filter(game => game.game_id !== action.payload.game_id)
+            : [...state.selectedGames, action.payload],
+        };
     case REMOVE_GAME:
       return {
         ...state,
