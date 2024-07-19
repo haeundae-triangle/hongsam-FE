@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import TopBar from '../components/TopBar';
 import { Games } from '../components/Main/Games'
 
 const MakeLink = () => {
+  const selectedList = useSelector((state) => state.games.selectedGames);
+
   // 백엔드에 넘겨줄 정보
   const [boxName, setBoxName] = useState('');
   const [information, setInformation] = useState('');
@@ -62,9 +65,9 @@ const MakeLink = () => {
           onChange={(e) => setUserName(e.target.value)}
         />
       </InfoContainer>
-      <H3>총 N개 게임</H3>
+      <H3>총 {selectedList.length}개 게임</H3>
       <ListContainer>
-        <Games numbering={true}/>
+        <Games games={selectedList} numbering={true} />
       </ListContainer>
       <ShareContainer onClick={handleShareClick}>
         <H2>공유 링크 생성</H2>
@@ -76,7 +79,7 @@ const MakeLink = () => {
 export default MakeLink;
 
 const Container = styled.div`
-  height: auto;
+  min-height: 98vh;
   background-color: #222222;
 `
 

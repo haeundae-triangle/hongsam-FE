@@ -78,7 +78,7 @@ const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) 
           </DifficultyContainer>
         </InformationContainer>
         <InformationContainer>
-          <H4>{game.game_intro}</H4>
+          <H4>{game.game_feature}</H4>
         </InformationContainer>
         </TextContainer>
         <ButtonContainer>
@@ -136,7 +136,7 @@ const Number = styled.h4`
 `
 
 const ImageContainer = styled.div`
-  background-color: #686868;   
+  // background-color: #686868;   
   width: 18vw;   
   height: 14vw;
 `
@@ -160,6 +160,7 @@ const InformationContainer = styled.div`
   flex-direction: row;   
   align-items: center;   
   height: 50%;  
+  margin: 2% 0;
 `
 
 const TitleContainer = styled.div`
