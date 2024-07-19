@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components'
 import { EachGame } from './EachGame';
-import useFetchTop10 from '../../hooks/useFetchTop10';
 
-export const Games = ({ title, brief, checkbox, numbering }) => {
-  const [games, setGames] = useState(['Game1', 'Game2', 'Game3', 'Game4', 'Game5'])
-  const { top10Games, error, isLoading } = useFetchTop10();
+export const Games = ({ games, title, brief, checkbox, numbering }) => {
 
   return (
     <Container>
@@ -16,7 +13,7 @@ export const Games = ({ title, brief, checkbox, numbering }) => {
       </TitleContainer>
       )}
       <EachGameContainer>
-        {!isLoading && (top10Games.map((game, index) => (
+        {games && (games.map((game, index) => (
             <EachGame
               // key={game.game.id || index}
               key={game.game_id}

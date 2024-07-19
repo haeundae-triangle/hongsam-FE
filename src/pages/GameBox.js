@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import TopBar from '../components/TopBar';
 import { Games } from "../components/Main/Games"
 import styled from 'styled-components';
 
 const GameBox = () => {
-const [selectedList, setSelectedList] = useState([]);
+const selectedList = useSelector((state) => state.games.savedGames);
+
 
 const navigate = useNavigate();
 const handleClick = () => {
@@ -21,7 +23,7 @@ return (
     <ContentsContainer>
       <TopBar title={"게임 박스"} brief={"내가 고른 게임들을 친구들과 공유해봐요"}/>
       <GameContainer>
-        <Games checkbox={true}/>
+        <Games games={selectedList} checkbox={true}/>
       </GameContainer>
     </ContentsContainer>
     <>
