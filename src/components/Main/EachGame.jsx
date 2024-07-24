@@ -81,23 +81,23 @@ const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) 
           <H4>{game.game_feature}</H4>
         </InformationContainer>
         </TextContainer>
-        <ButtonContainer>
-        {checkbox ? (
-          <DeleteButton
-            onClick={()=> handleRemoveGame(game.game_id)}>
-            X
-          </DeleteButton>
-        ): (
-          (!numbering && !checkbox &&
-            <AddButton
-            isSelected={inBoxGames.includes(game.game_id)}
-            onClick={() => handleButtonClick(game.game_id)}
-            >
-            {inBoxGames.includes(game.game_id) ? '✓' : '+'}
-            </AddButton>
-          )
-        )}
-        </ButtonContainer>
+        {!numbering && 
+          <ButtonContainer>
+          {checkbox ? (
+            <DeleteButton
+              onClick={()=> handleRemoveGame(game.game_id)}>
+              X
+            </DeleteButton>
+          ): (
+             <AddButton
+              isSelected={inBoxGames.includes(game.game_id)}
+              onClick={() => handleButtonClick(game.game_id)}
+              >
+              {inBoxGames.includes(game.game_id) ? '✓' : '+'}
+              </AddButton>
+          )}
+          </ButtonContainer>
+        }
       </>
       }  
     </Container>
@@ -126,7 +126,7 @@ const CheckboxButton = styled.button`
   align-items: center;   
   justify-content: center;   
   font-size: 22px;   
-  background-color: ${(props) => (props.isSelected ? '#645FFF' : 'transparent')};   
+  background-color: ${(props) => (props.isSelected ? '#645FFF' : 'transparent')};
   border: ${(props) => (props.isSelected ? '2px solid #645FFF' : '2px solid #ffffff')};
 `
 
@@ -135,8 +135,7 @@ const Number = styled.h4`
   color: #F8F8F8;
 `
 
-const ImageContainer = styled.div`
-  // background-color: #686868;   
+const ImageContainer = styled.div` 
   width: 18vw;   
   height: 14vw;
 `
@@ -145,13 +144,12 @@ const GameImage = styled.img`
   width: 100%;
 `
 
-const TextContainer = styled.div`
-  // background-color: pink;   
+const TextContainer = styled.div`  
   display: flex;   
   flex-direction: column;   
   justify-content: center;   
-  height: 70%;   
-  width: 75vw;   
+  height: 70%;  
+  width: 75vw;
   padding: 3%;
 `
 
