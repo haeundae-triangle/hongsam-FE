@@ -15,39 +15,47 @@ import sampleImage2 from '../assets/sampleImage2.jpg';
 import sampleImage3 from '../assets/sampleImage3.jpg';
 
 const MainView = () => {
-    const [bannerSlides, setBannerSlide] = useState([]);
-    const [userInput, setUserInput] = useState('');
-    const { serviceBoxes, error, isLoading } = useFetchServiceGameBoxes();
+  const [allGames, setAllGames] = useState([]);
+  const [bannerSlides, setBannerSlide] = useState([]);
+  const [userInput, setUserInput] = useState('');
+  const { serviceBoxes, serviceBoxesError, serviceBoxesIsLoading } = useFetchServiceGameBoxes();
 
-    const getBannerSlide = () => {
-        //TODO - API Call 구현 완료 후 배너 광고 가져오기
-        //NOTE - 아니면 배너광고는 asset 파일에 놔두고 가져오는건 어떨지?
-        const images = [
-        sampleImage1, sampleImage2, sampleImage3,
-        // 'public/Banner/sampleImage1',
-        // 'public/Banner/sampleImage2',
-        // 'public/Banner/sampleImage3',
-        ]
-        setBannerSlide(images);
-    }
+  useEffect(() => {
+    fetch('AllGames.json')
+      .then(response => response.json())
+      .then(json => {
+        setAllGames(json);
+        console.log(json);
+      });
+    }, []);
 
-    useEffect(() => {
-        getBannerSlide();
-    }, [])
+  const getBannerSlide = () => {
+      //TODO - API Call 구현 완료 후 배너 광고 가져오기
+      //NOTE - 아니면 배너광고는 asset 파일에 놔두고 가져오는건 어떨지?
+      const images = [
+      sampleImage1, sampleImage2, sampleImage3,
+      ]
+      setBannerSlide(images);
+  }
 
-    return (
-      <Container>
-        <ToolbarTopSide />
-        <AdBanner slides={bannerSlides}/>
-        <SearchBar
-          initialUserInput={userInput}
-        />
-        <GameFilter />
-        <GameListBanner />
-        <GameLists info={serviceBoxes}/>
-        <BottomNavigationBar />
-      </Container>
-    );
+  useEffect(() => {
+      getBannerSlide();
+  }, [])
+
+  return (
+    <Container>
+      <ToolbarTopSide />
+      <AdBanner slides={bannerSlides}/>
+      <SearchBar
+        initialUserInput={userInput}
+      />
+      <GameFilter allGames={allGames}/>
+      <GameListBanner />
+      <GameLists info={serviceBoxes}/>
+      {/* <GameLists info={userBoxes} /> */}
+      <BottomNavigationBar />
+    </Container>
+  );
 }
 
 export default MainView;
