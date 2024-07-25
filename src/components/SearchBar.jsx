@@ -1,49 +1,76 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Search } from 'react-bootstrap-icons';
-import { useNavigate } from 'react-router-dom';
+import { Games } from './Main/Games';
 
-export const SearchBar = ({ initialUserInput = '', onUserInputChange }) => {
+export const SearchBar = (props) => {
+  const {allGames} = props;
   const [userInput, setUserInput] = useState('');
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    setUserInput(initialUserInput);
-  }, [initialUserInput]);
+  const [searchedTerm, setSearchedTerm] = useState('')
+  const [filteredGames, setFilteredGames] = useState([]);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents page reload
-    navigate("/Search", { state: { userInput } });
-    initialUserInput && onUserInputChange(userInput)
+    e.preventDefault();
+
+    setSearchedTerm(userInput);
   };
 
   const handleClear = () => {
     setUserInput('');
-    onUserInputChange('');
+    setSearchedTerm('')
+    setFilteredGames([]);
   };
 
+  useEffect(() => {
+    const newFilteredGames = allGames.filter((game) =>
+      game.game_name.toLowerCase().includes(searchedTerm.toLowerCase())
+    );
+
+    if (newFilteredGames.length === 0) {
+      setFilteredGames([]);
+    } else {
+      setFilteredGames(newFilteredGames);
+    }
+  }, [searchedTerm])
+
   return (
-    <ContainerSearchBar onSubmit={handleSubmit}>
-      <SearchBarInput
-        type="text"
-        value={userInput}
-        onChange={(e) => setUserInput(e.target.value)}
-        placeholder="게임을 검색해봐! 홍삼이 가르쳐줄게!"
-      />
-      <ButtonWrapper>
-        {userInput !== initialUserInput ? (
-          <SubmitButton type="submit">
-            <Search size={16} />
-          </SubmitButton>
-        ) : (
-          <DeleteButton type="button" onClick={handleClear}>
-            X
-          </DeleteButton>
+    <Container>
+      <ContainerSearchBar onSubmit={handleSubmit}>
+        <SearchBarInput
+          type="text"
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+          placeholder="게임을 검색해봐! 홍삼이 가르쳐줄게!"
+        />
+        <ButtonWrapper>
+          {userInput !== searchedTerm ? (
+            <SubmitButton type="submit">
+              <Search size={16} />
+            </SubmitButton>
+          ) : (
+            <DeleteButton type="button" onClick={handleClear}>
+              X
+            </DeleteButton>
+          )}
+        </ButtonWrapper>
+      </ContainerSearchBar>
+      <GamesContainer>
+        {filteredGames.length > 0 ? (
+          <Games games={filteredGames} />
+        ):(
+          userInput && searchedTerm && <H3>검색어와 일치하는 게임이 없습니다.</H3>
         )}
-      </ButtonWrapper>
-    </ContainerSearchBar>
+      </GamesContainer>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+`
 
 const ContainerSearchBar = styled.form`
   width: 90vw;
@@ -95,3 +122,13 @@ const DeleteButton = styled.button`
   line-height: 1;
 `;
 
+const GamesContainer = styled.div`
+  margin: -3% 6% 0 6%;
+`
+
+const H3 = styled.h3`
+  color: #f8f8f8;
+  font-size: 16px;
+  text-align: center;
+  margin: 5% 0;
+`
