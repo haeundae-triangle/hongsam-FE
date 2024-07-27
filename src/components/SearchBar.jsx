@@ -13,6 +13,7 @@ export const SearchBar = (props) => {
     e.preventDefault();
 
     setSearchedTerm(userInput);
+    console.log(userInput);
   };
 
   const handleClear = () => {
@@ -25,11 +26,13 @@ export const SearchBar = (props) => {
     const newFilteredGames = allGames.filter((game) =>
       game.game_name.toLowerCase().includes(searchedTerm.toLowerCase())
     );
-
     if (newFilteredGames.length === 0) {
       setFilteredGames([]);
     } else {
       setFilteredGames(newFilteredGames);
+    }
+    if (searchedTerm === '') {
+      setFilteredGames([]);
     }
   }, [searchedTerm])
 
