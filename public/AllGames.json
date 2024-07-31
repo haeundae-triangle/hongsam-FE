@@ -54,6 +54,32 @@
     "game_video": "https://www.youtube.com/watch?v=f0x6gBZ9fvA"
   },
   {
+    "game_id": 3,
+    "game_name": "훈민정음 게임",
+    "game_difficulty": 1,
+    "game_category": "두뇌 게임",
+    "game_feature": "나랏말싸미 듕귁에 달아",
+    "game_region": "",
+    "game_intro": "훈민~정음 훈민정음 훈민정음 훈민정음 훈민정음",
+    "game_rule": [
+      {
+        "stage": 1,
+        "example": "주최자 - 'ㅎㅅ!'",
+        "description": "게임 주최자가 인트로 후 2개의 자음을 말하며 엄지 손가락만 핀 손(따봉 자세)을 앞으로 내민다."
+      },
+      {
+        "stage": 2,
+        "example": "참가자 1 - '홍삼!', 참가자 2 - '흉상!' ...",
+        "description": "게임 참가자들은 최대한 빠르게 그 자음에 맞는 단어를 말하며 주최자의 엄지 손가락을 손으로 쥔다."
+      },
+      {
+        "stage": 3,
+        "description": "맨 마지막까지 남아서 자음에 맞는 단어를 말하지 못한 사람 혹은 뜻이 없는 단어를 말한 사람은 게임에서 패배하게 된다."
+      }
+    ],
+    "game_video": "https://www.youtube.com/watch?v=JT1aYZILUIA"
+  },
+  {
     "game_id": 4,
     "game_name": "지하철 게임",
     "game_difficulty": 1,
