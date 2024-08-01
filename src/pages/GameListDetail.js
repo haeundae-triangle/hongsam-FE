@@ -48,7 +48,7 @@ const GameListDetail = () => {
     <IconContainer>
       <EachIconContainer>
         <AiOutlinePlus style={{ color: '#f3f3f3', fontSize: '42px' }}/>
-        <H5>내 리스트에 추가</H5>
+        <H5>게임박스에 추가</H5>
       </EachIconContainer>
       <EachIconContainer>
         <AiOutlineHeart style={{ color: '#f3f3f3', fontSize: '42px' }} />
@@ -59,8 +59,9 @@ const GameListDetail = () => {
         <H5>친구에게 공유</H5>
       </EachIconContainer>
     </IconContainer>
+    <Divider />
     <GamesContainer>
-      <Games checkbox={false}/>
+      <Games games={box.games} checkbox={false}/>
     </GamesContainer>
   </Container>
   );
@@ -115,11 +116,6 @@ const TextInformationContainer = styled.div`
   align-items: flex-end;
 `
 
-const InformationContainer = styled.div`
-  height: auto;
-  padding: 1% 6%;
-`
-
 const H2 = styled.h2`
   color: white;
   font-size: 25px;
@@ -130,11 +126,6 @@ const H3 = styled.h4`
   color: #f3f3f3;
   font-size: 16px;
   margin: 0;
-`
-
-const EtcInfomationContainer = styled.div`
-  display: row;
-  width: auto;
 `
 
 const IconContainer = styled.div`
@@ -160,3 +151,10 @@ const GamesContainer = styled.div`
   padding: 0 5%;
 `
 
+const Divider = styled.hr`
+  width: 100%;
+  margin: 3% auto;
+  border: 0;
+  height: 1px;
+  background: #323232;
+`
