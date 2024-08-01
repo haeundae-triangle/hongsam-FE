@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addGame } from '../redux/actions';
+import { addGameList } from '../redux/actions';
 import styled from 'styled-components'
 import { AiOutlinePlus, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai';
 
@@ -35,7 +35,7 @@ const GameListDetail = () => {
   }, [boxId])
 
   const handleAddAllGame = () => {
-    dispatch(addGame(box.games))
+    dispatch(addGameList(box.games))
   }
 
 
