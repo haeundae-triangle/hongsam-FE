@@ -1,10 +1,8 @@
-// import { useEffect, useState } from 'react';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import { AiOutlinePlus, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai';
 
 import ToolbarTopSide from "../components/ToolbarTopside";
-import { SearchBar } from "../components/SearchBar";
 import { Games } from "../components/Main/Games"
 
 import { useSearchParams } from 'react-router-dom';
@@ -15,24 +13,38 @@ const GameListDetail = () => {
   const [searchParams] = useSearchParams();
   const boxId = searchParams.get('boxId');
   const [box, setBox] = useState([]);
+  const [boxImage, setBoxImage] = useState('');
 
   useEffect (() => {
     if (boxId) {
       fetchEachServiceBoxInfo(boxId)
-        .then((boxInfo) => setBox(boxInfo))
-        .catch((error) => console.error('error :', error.message));
+        .then((boxInfo) => {
+          setBox(boxInfo)
+          setBoxImage(`assets/GameBoxImage/${boxId}.png`)
+        })
+        .catch((error) => console.error('error :', error.message))
+        .finally(() => {
+          window.scrollTo(0, 0);
+        });
     }
   }, [boxId])
+
 
   return (
   <Container>
     <ToolbarTopSide />
-    <PictureContainer></PictureContainer>
-    <InformationContainer>
-      <H2>Game List Title</H2>
-      <H3>A description of the game</H3>
-      {/* 이 부분에 들어갈 설명 수정 필요 */}
-    </InformationContainer>
+    <PictureContainer>
+        <BackGroundImage src={boxImage} alt={box.playlist_name} />
+        <InfomationContainer>
+          <VerticalContainer>
+            <MainImage src={boxImage} alt={box.playlist_name} />
+          </VerticalContainer>
+          <TextInformationContainer>
+            <H2>{box.playlist_name}</H2>
+            <H3>{box.playlist_description}</H3>
+          </TextInformationContainer>        
+        </InfomationContainer>
+      </PictureContainer>
     <IconContainer>
       <EachIconContainer>
         <AiOutlinePlus style={{ color: '#f3f3f3', fontSize: '42px' }}/>
@@ -47,7 +59,6 @@ const GameListDetail = () => {
         <H5>친구에게 공유</H5>
       </EachIconContainer>
     </IconContainer>
-    <SearchBar />
     <GamesContainer>
       <Games checkbox={false}/>
     </GamesContainer>
@@ -62,8 +73,46 @@ const Container = styled.div`
 `
 
 const PictureContainer = styled.div`
-  height: 260px;
-  background-color: red;
+  display: flex;
+  justify-content: center;
+  height: 20rem;
+  overflow: hidden;
+  position: relative;
+`
+
+const BackGroundImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover; // 자르기
+  object-position: center; // 확인 필요
+  filter: blur(5px) brightness(0.8);
+  position: absolute;
+`
+
+const InfomationContainer = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 100%;
+  padding: 0 0 3% 4%;
+`
+
+const VerticalContainer = styled.div`
+  flex-direction: column;
+`
+
+const MainImage = styled.img`
+  width: 6rem;
+  height: 6rem;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+`
+
+const TextInformationContainer = styled.div`
+  height: auto;
+  padding: 1% 6%;
+  align-items: flex-end;
 `
 
 const InformationContainer = styled.div`
@@ -83,13 +132,17 @@ const H3 = styled.h4`
   margin: 0;
 `
 
+const EtcInfomationContainer = styled.div`
+  display: row;
+  width: auto;
+`
+
 const IconContainer = styled.div`
   height: 100px;
   padding: 1% 15%;
   display: flex;
   justify-content: center;
   align-items: center;
-  // background-color: green;
 `
 
 const EachIconContainer = styled.div`
@@ -106,3 +159,4 @@ const H5 = styled.h5`
 const GamesContainer = styled.div`
   padding: 0 5%;
 `
+
