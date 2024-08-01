@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addGame } from '../redux/actions';
 import styled from 'styled-components'
 import { AiOutlinePlus, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai';
 
@@ -10,6 +12,9 @@ import fetchEachServiceBoxInfo from '../gameAPI/fetchEachServiceBoxInfo';
 
 
 const GameListDetail = () => {
+  const dispatch = useDispatch();
+  // const [inBoxGames, setInBoxGames] = useState([]);
+
   const [searchParams] = useSearchParams();
   const boxId = searchParams.get('boxId');
   const [box, setBox] = useState([]);
@@ -29,6 +34,10 @@ const GameListDetail = () => {
     }
   }, [boxId])
 
+  const handleAddAllGame = () => {
+    dispatch(addGame(box.games))
+  }
+
 
   return (
   <Container>
@@ -46,7 +55,7 @@ const GameListDetail = () => {
         </InfomationContainer>
       </PictureContainer>
     <IconContainer>
-      <EachIconContainer>
+      <EachIconContainer onClick={handleAddAllGame}>
         <AiOutlinePlus style={{ color: '#f3f3f3', fontSize: '42px' }}/>
         <H5>게임박스에 추가</H5>
       </EachIconContainer>
@@ -153,7 +162,7 @@ const GamesContainer = styled.div`
 
 const Divider = styled.hr`
   width: 100%;
-  margin: 3% auto;
+  margin: 1% auto 5% auto;
   border: 0;
   height: 1px;
   background: #323232;
