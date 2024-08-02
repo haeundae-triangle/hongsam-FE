@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import ToolbarTopSide from "../components/ToolbarTopside";
-import { AdBanner } from "../components/Banners/AdBanner";
+import { BannerCarousel } from '../components/Banners/BannerCarousel';
+// import { AdBanner } from "../components/Banners/AdBanner";
 import { SearchBar } from "../components/SearchBar";
 import { GameListBanner } from '../components/Banners/GameListBanner';
 import { GameLists } from '../components/Main/GameLists';
@@ -17,7 +18,6 @@ import sampleImage3 from '../assets/sampleImage3.jpg';
 const MainView = () => {
   const [allGames, setAllGames] = useState([]);
   const [bannerSlides, setBannerSlide] = useState([]);
-  const [userInput, setUserInput] = useState('');
   const { serviceBoxes, serviceBoxesError, serviceBoxesIsLoading } = useFetchServiceGameBoxes();
 
   useEffect(() => {
@@ -45,14 +45,12 @@ const MainView = () => {
   return (
     <Container>
       <ToolbarTopSide />
-      <AdBanner slides={bannerSlides}/>
-      <SearchBar
-        initialUserInput={userInput}
-      />
-      <GameFilter allGames={allGames}/>
+      <BannerCarousel />
+      {/* <AdBanner slides={bannerSlides} /> */}
+      <SearchBar allGames={allGames} />
+      <GameFilter allGames={allGames} />
       <GameListBanner />
       <GameLists info={serviceBoxes}/>
-      {/* <GameLists info={userBoxes} /> */}
       <BottomNavigationBar />
     </Container>
   );
