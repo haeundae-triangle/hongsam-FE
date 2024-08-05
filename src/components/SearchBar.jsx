@@ -76,9 +76,9 @@ const Container = styled.div`
 `
 
 const ContainerSearchBar = styled.form`
-  width: 90vw;
+  width: 95%;
   height: 60px;
-  margin: 2% 5vw;
+  margin: 2% auto;
   display: flex;
   align-items: center;
   position: relative; 

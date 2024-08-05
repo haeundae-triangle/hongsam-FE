@@ -7,48 +7,48 @@ import { addGame, removeGame, selectGame } from '../../redux/actions';
 
 // 개별 게임 소개
 export const EachGame = ({ game, index, checkbox, numbering }) => {
-const navigate = useNavigate();
-const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-const [inBoxGames, setInBoxGames] = useState([]);
+  const [inBoxGames, setInBoxGames] = useState([]);
 
-const handleGoDetail = () => {
-  navigate(`/GameDetail?gameId=${game.game_id}`);
-};
+  const handleGoDetail = () => {
+    navigate(`/GameDetail?gameId=${game.game_id}`);
+  };
 
-const handleButtonClick = () => {
-  if (inBoxGames.includes(game.game_id)) {
-    handleRemoveGame(game.game_id);
-  } else {
-    handleAddGame(game.game_id);
+  const handleButtonClick = () => {
+    if (inBoxGames.includes(game.game_id)) {
+      handleRemoveGame(game.game_id);
+    } else {
+      handleAddGame(game.game_id);
+    }
+  };
+
+  const handleAddGame = (gameId) => {
+    setInBoxGames(prevGames => [...prevGames, gameId]);
+    dispatch(addGame(game));
+  };
+
+  const handleRemoveGame = (gameId) => {
+    setInBoxGames(prevGames => prevGames.filter(g => g !== gameId));
+    dispatch(removeGame(gameId));
+  };
+
+  const handleCheckBoxClick = () => {
+    if (inBoxGames.includes(game.game_id)) {
+      setInBoxGames(prevGames => prevGames.filter(g => g !== game.game_id));
+    } else {
+      setInBoxGames(prevGames => [...prevGames, game.game_id]);
+    }
+    dispatch(selectGame(game))
   }
-};
 
-const handleAddGame = (gameId) => {
-  setInBoxGames(prevGames => [...prevGames, gameId]);
-  dispatch(addGame(game));
-};
-
-const handleRemoveGame = (gameId) => {
-  setInBoxGames(prevGames => prevGames.filter(g => g !== gameId));
-  dispatch(removeGame(gameId));
-};
-
-const handleCheckBoxClick = () => {
-  if (inBoxGames.includes(game.game_id)) {
-    setInBoxGames(prevGames => prevGames.filter(g => g !== game.game_id));
-  } else {
-    setInBoxGames(prevGames => [...prevGames, game.game_id]);
-  }
-  dispatch(selectGame(game))
-}
-
-// 게임 난이도 아이콘
-const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) => (
-  <DifficultyIcon key={index}>
-    <FaFire style={{ fontSize: '15px', color: 'red' }} />
-  </DifficultyIcon>
-));
+  // 게임 난이도 아이콘
+  const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) => (
+    <DifficultyIcon key={index}>
+      <FaFire style={{ fontSize: '15px', color: 'red' }} />
+    </DifficultyIcon>
+  ));
 
   return (
     <Container>
@@ -68,18 +68,18 @@ const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) 
         <ImageContainer>
           <GameImage src={`assets/GameImage/${game.game_id}.png`} alt={game.game_id}/> 
         </ImageContainer>
-        <TextContainer>
-        <InformationContainer>
-          <TitleContainer onClick={handleGoDetail}>
-            <H3>{ game.game_name }</H3>
-          </TitleContainer>
-          <DifficultyContainer>
-            {difficultyIcons}
-          </DifficultyContainer>
-        </InformationContainer>
-        <InformationContainer>
-          <H4>{game.game_feature}</H4>
-        </InformationContainer>
+        <TextContainer onClick={handleGoDetail}>
+          <InformationContainer>
+            <TitleContainer>
+              <H3>{ game.game_name }</H3>
+            </TitleContainer>
+            <DifficultyContainer>
+              {difficultyIcons}
+            </DifficultyContainer>
+          </InformationContainer>
+          <InformationContainer>
+            <H4>{game.game_feature}</H4>
+          </InformationContainer>
         </TextContainer>
         {!numbering && 
           <ButtonContainer>
@@ -105,13 +105,13 @@ const difficultyIcons = Array.from({ length: game.game_difficulty }, (_, index) 
 };
 
 const Container = styled.div`
-  // background-color: green;
+  // background-color: red;
   position: relative;   
-  width: 90vw;   
+  width: 100%;   
   height: 13vw;   
   display: flex;   
   flex-direction: row;   
-  align-items: center;   
+  align-items: center;
   margin: 3% 0;
 `
 
@@ -193,7 +193,8 @@ const ButtonContainer = styled.div`
   display: flex;   
   flex-direction: column;   
   justify-content: center;   
-  width: 15%;
+  width: 10%;
+  // background-color: pink;
 `
 
 const AddButton = styled.button`

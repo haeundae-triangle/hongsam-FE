@@ -31,7 +31,8 @@ export const Games = ({ games, title, brief, checkbox, numbering }) => {
 
 const Container = styled.div`
   position: relative;
-  width: 100vw;
+  // background-color: green;
+  width: 94%;
   height: auto;
   margin: 2% 0 -2% 0;
 `

@@ -5,10 +5,8 @@ import { EachGameList } from './EachGameList';
 // 게임 리스트 소개
 export const GameLists = ( props ) => {
   const { info } = props;
-
   console.log(info);
 
-  // 각 게임 리스트 카드 보여주기
   return (
     <Container>
       <TitleContainer>

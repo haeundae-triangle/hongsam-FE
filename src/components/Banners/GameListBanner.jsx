@@ -33,14 +33,14 @@ export const GameListBanner = () => {
 const Container = styled.div`
   // background-color: red;
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 180px;
 `;
 
 const BannerContainer = styled.div`
   background-color: #f8f8f8;
   margin: 2% auto;
-  width: 90vw;
+  width: 95%;
   height: 100px;
   border-radius: 15px;
   display: flex;
