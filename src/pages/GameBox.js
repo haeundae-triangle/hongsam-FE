@@ -48,7 +48,7 @@ const Container = styled.div`
   justify-content: space-between;
   background-color: #222222;
   min-height: 98vh;
-  width: 100vw;
+  width: 100%;
 `
 
 const ContentsContainer = styled.div`
@@ -58,6 +58,7 @@ const ContentsContainer = styled.div`
 `
 
 const GameContainer = styled.div`
+  width: 95%;
   margin: 0 5%;
 `
 

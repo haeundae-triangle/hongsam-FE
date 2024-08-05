@@ -29,20 +29,19 @@ export const GameFilter = (props) => {
 };
 
 const Container = styled.div`
-  // background-color: red;
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: auto;
-  padding: 0 5%;
+  padding: 0 3%;
 `;
 
 const TagContianer = styled.div`
-width: 90vw;
-height: auto;
-padding: 2% 0;
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
+  width: 94%;
+  height: auto;
+  padding: 2% 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 `
 
 const Tag = styled.div`
