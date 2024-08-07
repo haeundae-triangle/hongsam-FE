@@ -70,7 +70,7 @@ const GameDetail = () => {
       <IconContainer>
         <EachIconContainer>
           <AiOutlinePlus style={{ color: '#f3f3f3', fontSize: '42px' }}/>
-          <H5>내 리스트에 추가</H5>
+          <H5>게임박스에 추가</H5>
         </EachIconContainer>
         <EachIconContainer>
           <AiOutlineHeart style={{ color: '#f3f3f3', fontSize: '42px' }} />
@@ -145,6 +145,8 @@ const VerticalContainer = styled.div`
 const MainImage = styled.img`
   width: 6rem;
   height: 6rem;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 `
 
 const TextInformationContainer = styled.div`
