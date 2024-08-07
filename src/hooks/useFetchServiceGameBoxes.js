@@ -18,7 +18,7 @@ const useFetchServiceGameBoxes = () => {
 
         const data = await response.json();
         setServiceBoxes(data);
-        console.log('서비스 게임박스 목록 가져와서 데이터 저장했다!');
+        // console.log('서비스 게임박스 목록 가져와서 데이터 저장했다!');
     } catch (error) {
         setError(error.message);
     } finally {
@@ -30,10 +30,10 @@ const useFetchServiceGameBoxes = () => {
   }, []);
 
   // 디버깅
-  // useEffect(() => {
-  //   const jsonString = JSON.stringify(serviceBoxes, null, 2);
-  //   console.log('게임박스 목록 (포맷된 JSON):', jsonString);
-  // });
+  useEffect(() => {
+    const jsonString = JSON.stringify(serviceBoxes, null, 2);
+    console.log('게임박스 목록 (포맷된 JSON):', jsonString);
+  });
 
 
   return {
