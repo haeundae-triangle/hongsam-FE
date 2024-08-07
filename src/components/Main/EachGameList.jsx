@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 // 개별 게임 리스트 소개
 export const EachGameList = (props) => {
   const { info } = props;
-  console.log(info);
+  console.log('개별 게임리스트에 전달받은 정보입니다.', info);
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -16,6 +16,7 @@ export const EachGameList = (props) => {
   return (
     <Container onClick={handleClick}>
       <ImageContainer>
+        <GameBoxImage src={`assets/GameBoxImage/${info.playlist_id}.png`} alt={info.playlist_id}/> 
       </ImageContainer>
       <TextContainer>
         <H3>{info.playlist_name}</H3>
@@ -37,6 +38,10 @@ const ImageContainer = styled.div`
   background-color: red;
   width: 25vw;
   height: 25vw;
+`
+
+const GameBoxImage = styled.img`
+  width: 100%;
 `
 
 const TextContainer = styled.div`
