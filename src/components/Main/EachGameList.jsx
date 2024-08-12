@@ -1,15 +1,26 @@
 import React from 'react';
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
 
 // 개별 게임 리스트 소개
-export const EachGameList = () => {
+export const EachGameList = (props) => {
+  const { info } = props;
+  console.log('개별 게임리스트에 전달받은 정보입니다.', info);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    console.log('게임리스트 아이디 확인하자' + info.playlist_id)
+    navigate(`/GameListDetail?boxId=${info.playlist_id}`);
+  };
+
   return (
-    <Container>
+    <Container onClick={handleClick}>
       <ImageContainer>
+        <GameBoxImage src={`assets/GameBoxImage/${info.playlist_id}.png`} alt={info.playlist_id}/> 
       </ImageContainer>
       <TextContainer>
-        <H3>Game List Title</H3>
-        <H4>Writer : name</H4>
+        <H3>{info.playlist_name}</H3>
+        <H4>Writer : 홍삼</H4>
       </TextContainer>
     </Container>
   );
@@ -27,6 +38,10 @@ const ImageContainer = styled.div`
   background-color: red;
   width: 25vw;
   height: 25vw;
+`
+
+const GameBoxImage = styled.img`
+  width: 100%;
 `
 
 const TextContainer = styled.div`

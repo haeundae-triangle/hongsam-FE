@@ -6,7 +6,7 @@ import {LogoIcon, CartIcon, AlarmIcon, MymenuIcon} from './Icons/Icons'
 const ToolbarTopSide = () => {
 
   return (
-    <Navbar id='navbar'>
+    <Navbar>
       <div id='navbarLogo'>
         <LogoIcon />
       </div>
@@ -20,16 +20,16 @@ const ToolbarTopSide = () => {
 };
 
 const Navbar = styled.header`
-  background: #1e1e1e;
-  backdrop-filter: blur(2px);
+  background: #222222;
+  // backdrop-filter: blur(2px);
   color: white;
   list-style: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 90vw;
-  margin-right: 5vw;
-  margin-left: 5vw;
+  margin: 0 5vw;
+  padding: 3% 0;
 `;
 
 const NavbarRightMenu = styled.ul`
