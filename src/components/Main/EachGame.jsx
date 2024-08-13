@@ -105,11 +105,11 @@ export const EachGame = ({ game, index, checkbox, numbering }) => {
 };
 
 const Container = styled.div`
-  // background-color: red;
+  // background-color: yellow;
   position: relative;   
-  width: 100%;   
-  height: 13vw;   
-  display: flex;   
+  width: 100%; 
+  height: 13vw; 
+  display: flex;
   flex-direction: row;   
   align-items: center;
   margin: 3% 0;
@@ -120,8 +120,8 @@ const CheckboxButton = styled.button`
   border: 2px solid #ffffff;   
   border-radius: 10%;   
   margin: 0 5% 0 0;   
-  width: 35px;   
-  height: 30px;   
+  width: 10%;   
+  aspect-ratio: 1 / 1;
   display: flex;   
   align-items: center;   
   justify-content: center;   
@@ -136,8 +136,11 @@ const Number = styled.h4`
 `
 
 const ImageContainer = styled.div` 
-  width: 18vw;   
-  height: 14vw;
+  width: 20%;   
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const GameImage = styled.img`
@@ -201,8 +204,8 @@ const AddButton = styled.button`
   color: white;
   border: 2px solid #ffffff;
   border-radius: 10%;
-  width: 30px;
-  height: 30px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
