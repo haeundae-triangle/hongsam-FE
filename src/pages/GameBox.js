@@ -58,7 +58,8 @@ const ContentsContainer = styled.div`
 `
 
 const GameContainer = styled.div`
-  width: 95%;
+  // background-color: navy;
+  width: 90%;
   margin: 0 5%;
 `
 
