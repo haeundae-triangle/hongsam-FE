@@ -69,6 +69,7 @@ export const SearchBar = (props) => {
 };
 
 const Container = styled.div`
+  // background-color: gray;
   display: flex;
   flex-direction: column;
   height: auto;

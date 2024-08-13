@@ -29,24 +29,26 @@ export const GameFilter = (props) => {
 };
 
 const Container = styled.div`
+  // background-color: red;
   position: relative;
-  width: 100%;
+  width: 95%;
   height: auto;
-  padding: 0 3%;
+  margin: 0 auto;
 `;
 
 const TagContianer = styled.div`
-  width: 94%;
+  width: 95%;
   height: auto;
-  padding: 2% 0;
+  padding: 1% 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 2%;
 `
 
 const Tag = styled.div`
   color: ${({ isSelected }) => (isSelected ? '#f8f8f8' : '#aeaeae')};
-  padding: 8px 15px;
+  padding: 2%;
   border-radius: 10px;
   background-color: ${({ isSelected }) => (isSelected ? '#645FFF' : '#686868')};
+  margin: 1% 0;
 `;
