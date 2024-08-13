@@ -68,7 +68,7 @@ const NavContainer = styled.div`
   bottom: 0;
   width: 100%;
   background-color: #3d3d3d;
-  height: 65px;
+  height: 10%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   padding: 0 12.5%;
