@@ -31,10 +31,10 @@ export const GameListBanner = () => {
 };
 
 const Container = styled.div`
-  // background-color: red;
+  // background-color: blue;
   position: relative;
   width: 100%;
-  height: 180px;
+  aspect-ratio: 1 / 0.3;
 `;
 
 const BannerContainer = styled.div`
