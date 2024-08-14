@@ -23,7 +23,7 @@ const GameDetail = () => {
       fetchEachGameInfo(gameId)
         .then((gameInfo) => {
           setGame(gameInfo);
-          setGameImage(`${process.env.PUBLIC_URL}/assets/GameImage/${gameId}`);
+          setGameImage(`${process.env.PUBLIC_URL}/assets/GameImage/${gameId}.png`);
         })
         .catch((error) => console.error('error :', error.message))
         .finally(() => {
