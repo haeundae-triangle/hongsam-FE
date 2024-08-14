@@ -23,7 +23,7 @@ const GameDetail = () => {
       fetchEachGameInfo(gameId)
         .then((gameInfo) => {
           setGame(gameInfo)
-          setGameImage(`assets/GameImage/${gameId}.png`)
+          setGameImage(`${process.env.REACT_APP_API_ENDPOINT}/assets/GameImage/${gameId}`)
         })
         .catch((error) => console.error('error :', error.message))
         .finally(() => {
@@ -139,7 +139,7 @@ const InfomationContainer = styled.div`
 `
 
 const VerticalContainer = styled.div`
-  flex-directrion: column;
+  flex-direction: column;
 `
 
 const MainImage = styled.img`
