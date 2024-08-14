@@ -24,7 +24,6 @@ const GameDetail = () => {
         .then((gameInfo) => {
           setGame(gameInfo);
           setGameImage(`${process.env.REACT_APP_API_ENDPOINT}/assets/GameImage/${gameId}`);
-          console.log(gameImage);
         })
         .catch((error) => console.error('error :', error.message))
         .finally(() => {
@@ -32,6 +31,10 @@ const GameDetail = () => {
         });
     }
   }, [gameId])
+
+  useEffect (() => {
+    console.log(gameId,"의 게임 이미지 경로는 = ",gameImage)
+  }, [gameImage])
 
   const [selected, setSelected] = useState('rule')
 
