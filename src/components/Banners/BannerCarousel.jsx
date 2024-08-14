@@ -37,6 +37,7 @@ export const BannerCarousel = () => {
 };
 
 const Container = styled.div`
+  // background-color: pink;
   display: flex;
   width: 100%;
   height: auto;
@@ -46,7 +47,7 @@ const Container = styled.div`
 `
 
 const ImageContainer = styled.div`
-  background-color: blue;
+  // background-color: blue;
   width : 95%;
   height: 95%;
   border-radius: 20px;

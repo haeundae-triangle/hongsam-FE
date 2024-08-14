@@ -39,5 +39,7 @@ export default MainView;
 
 const Container = styled.div`
   background-color: #222222;
-
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 `

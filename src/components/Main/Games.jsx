@@ -32,13 +32,13 @@ export const Games = ({ games, title, brief, checkbox, numbering }) => {
 const Container = styled.div`
   position: relative;
   // background-color: green;
-  width: 94%;
+  width: 100%;
   height: auto;
   margin: 2% 0 -2% 0;
 `
 
 const TitleContainer = styled.div`
-  height: auto;;
+  height: auto;
 `
 
 const H2 = styled.h2`
