@@ -22,8 +22,9 @@ const GameDetail = () => {
     if (gameId) {
       fetchEachGameInfo(gameId)
         .then((gameInfo) => {
-          setGame(gameInfo)
-          setGameImage(`${process.env.REACT_APP_API_ENDPOINT}/assets/GameImage/${gameId}`)
+          setGame(gameInfo);
+          setGameImage(`${process.env.REACT_APP_API_ENDPOINT}/assets/GameImage/${gameId}`);
+          console.log(gameImage);
         })
         .catch((error) => console.error('error :', error.message))
         .finally(() => {
