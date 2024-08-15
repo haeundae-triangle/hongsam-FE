@@ -25,7 +25,7 @@ const GameListDetail = () => {
       fetchEachServiceBoxInfo(boxId)
         .then((boxInfo) => {
           setBox(boxInfo)
-          setBoxImage(`assets/GameBoxImage/${boxId}.png`)
+          setBoxImage(`${process.env.REACT_APP_FRONTEND_URL}/assets/GameBoxImage/${boxId}.png`)
         })
         .catch((error) => console.error('error :', error.message))
         .finally(() => {
