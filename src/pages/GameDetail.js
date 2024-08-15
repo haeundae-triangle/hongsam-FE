@@ -9,7 +9,7 @@ import ToolbarTopSide from "../components/ToolbarTopside";
 import { GameRules } from '../components/GameRules';
 
 // import useFetchEachGameInfo from '../hooks/useFetchEachGameInfo';
-import fetchEachGameInfo from '../gameAPI/fetchEachGameInfo';
+import fetchEachGameInfo from '../apis/fetchEachGameInfo';
 
 
 const GameDetail = () => {

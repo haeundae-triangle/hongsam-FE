@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 // 개별 게임 리스트 소개
 export const EachGameList = (props) => {
   const { info } = props;
-  console.log('개별 게임리스트에 전달받은 정보입니다.', info);
+  // console.log('개별 게임리스트에 전달받은 정보입니다.', info);
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log('게임리스트 아이디 확인하자' + info.playlist_id)
+    // console.log('게임리스트 아이디 확인하자' + info.playlist_id)
     navigate(`/GameListDetail?boxId=${info.playlist_id}`);
   };
 

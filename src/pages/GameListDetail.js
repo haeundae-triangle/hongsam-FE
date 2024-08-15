@@ -8,7 +8,8 @@ import ToolbarTopSide from "../components/ToolbarTopside";
 import { Games } from "../components/Main/Games"
 
 import { useSearchParams } from 'react-router-dom';
-import fetchEachServiceBoxInfo from '../gameAPI/fetchEachServiceBoxInfo';
+import fetchEachServiceBoxInfo from '../apis/fetchEachServiceBoxInfo';
+import kakaoTalkShare from '../apis/kakaotalkShare';
 
 
 const GameListDetail = () => {
@@ -25,6 +26,7 @@ const GameListDetail = () => {
       fetchEachServiceBoxInfo(boxId)
         .then((boxInfo) => {
           setBox(boxInfo)
+          // setBoxImage(`assets/GameBoxImage/${boxId}.png`)
           setBoxImage(`${process.env.REACT_APP_FRONTEND_URL}/assets/GameBoxImage/${boxId}.png`)
         })
         .catch((error) => console.error('error :', error.message))
@@ -36,6 +38,17 @@ const GameListDetail = () => {
 
   const handleAddAllGame = () => {
     dispatch(addGameList(box.games))
+  }
+
+  const handleShare = () => {
+    console.log('공유하기 클릭했어!')
+    kakaoTalkShare({
+      title: box.playlist_name,
+      description: box.playlist_description,
+      imageUrl: boxImage,
+      apiType: 'GameListDetail',
+      typeId: `boxId=${boxId}`
+    })
   }
 
 
@@ -63,7 +76,7 @@ const GameListDetail = () => {
         <AiOutlineHeart style={{ color: '#f3f3f3', fontSize: '42px' }} />
         <H5>좋아요</H5>
       </EachIconContainer>
-      <EachIconContainer>
+      <EachIconContainer onClick={handleShare}>
         <AiOutlineShareAlt style={{ color: '#f3f3f3', fontSize: '42px' }}/>
         <H5>친구에게 공유</H5>
       </EachIconContainer>

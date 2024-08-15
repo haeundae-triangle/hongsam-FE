@@ -32,7 +32,7 @@ const useFetchServiceGameBoxes = () => {
   // 디버깅
   useEffect(() => {
     const jsonString = JSON.stringify(serviceBoxes, null, 2);
-    console.log('게임박스 목록 (포맷된 JSON):', jsonString);
+    // console.log('게임박스 목록 (포맷된 JSON):', jsonString);
   });
 
 
