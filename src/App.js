@@ -15,7 +15,7 @@ function App() {
   return (
     <Provider store={store}>
       <Container>
-        <Router basename='/hongsam-FE'>
+        <Router>
           <Routes>
             <Route path="/hongsam-FE" element={<MainView />}></Route>
             <Route path="GameBox" element={<GameBox />}></Route>
