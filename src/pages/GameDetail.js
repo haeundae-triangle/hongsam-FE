@@ -22,8 +22,8 @@ const GameDetail = () => {
     if (gameId) {
       fetchEachGameInfo(gameId)
         .then((gameInfo) => {
-          setGame(gameInfo)
-          setGameImage(`assets/GameImage/${gameId}.png`)
+          setGame(gameInfo);
+          setGameImage(`${process.env.REACT_APP_FRONTEND_URL}/assets/GameImage/${gameId}.png`);
         })
         .catch((error) => console.error('error :', error.message))
         .finally(() => {
@@ -31,6 +31,10 @@ const GameDetail = () => {
         });
     }
   }, [gameId])
+
+  useEffect (() => {
+    console.log(gameId,"의 게임 이미지 경로는 = ",gameImage)
+  }, [gameImage])
 
   const [selected, setSelected] = useState('rule')
 
@@ -139,7 +143,7 @@ const InfomationContainer = styled.div`
 `
 
 const VerticalContainer = styled.div`
-  flex-directrion: column;
+  flex-direction: column;
 `
 
 const MainImage = styled.img`

@@ -17,7 +17,7 @@ function App() {
       <Container>
         <Router>
           <Routes>
-            <Route path="/" element={<MainView />}></Route>
+            <Route path="/hongsam-FE" element={<MainView />}></Route>
             <Route path="GameBox" element={<GameBox />}></Route>
             {/* <Route path="Search" element={<Search />}></Route> */}
 

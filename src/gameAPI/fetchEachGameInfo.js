@@ -14,4 +14,3 @@ const fetchEachGameInfo = async (gameId) => {
   };
   
 export default fetchEachGameInfo;
-  

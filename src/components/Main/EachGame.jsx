@@ -66,7 +66,7 @@ export const EachGame = ({ game, index, checkbox, numbering }) => {
           <Number>{ index }</Number>
         )}
         <ImageContainer>
-          <GameImage src={`assets/GameImage/${game.game_id}.png`} alt={game.game_id}/> 
+          <GameImage src={`${process.env.REACT_APP_FRONTEND_URL}/assets/GameImage/${game.game_id}.png`} alt={game.game_id}/> 
         </ImageContainer>
         <TextContainer onClick={handleGoDetail}>
           <InformationContainer>
