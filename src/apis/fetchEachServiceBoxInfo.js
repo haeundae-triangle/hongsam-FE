@@ -10,7 +10,7 @@ const fetchEachServiceBoxInfo = async (boxId) => {
   
     const data = await response.json();
     const jsonString = JSON.stringify(data, null, 2);
-    console.log(jsonString);
+    // console.log(jsonString);
 
     return data;
   };
