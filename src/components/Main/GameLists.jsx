@@ -5,7 +5,7 @@ import { EachGameList } from './EachGameList';
 // 게임 리스트 소개
 export const GameLists = ( props ) => {
   const { info } = props;
-  console.log(info);
+  // console.log(info);
 
   return (
     <Container>
