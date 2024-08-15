@@ -15,7 +15,7 @@ function App() {
   return (
     <Provider store={store}>
       <Container>
-        <BrowserRouter basename={process.env.REACT_APP_FRONTEND_URL}>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
         {/* <Router basename="/hongsam-FE"></Router> */}
           <Routes>
             <Route path="/hongsam-FE" element={<MainView />}></Route>
