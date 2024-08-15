@@ -2,7 +2,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 
 import MainView from "./pages/MainView.js";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as BrowserRouter, Router, Routes, Route } from "react-router-dom";
 import GameBox from "./pages/GameBox.js";
 import GameListDetail from "./pages/GameListDetail.js";
 import GameDetail from "./pages/GameDetail.js";
@@ -15,25 +15,22 @@ function App() {
   return (
     <Provider store={store}>
       <Container>
-        <Router basename='/hongsam-FE'>
+        <BrowserRouter basename={process.env.REACT_APP_FRONTEND_URL}>
+        <Router basename="/hongsam-FE"></Router>
           <Routes>
             <Route path="/" element={<MainView />}></Route>
             <Route path="GameBox" element={<GameBox />}></Route>
             {/* <Route path="Search" element={<Search />}></Route> */}
 
-            {/* TODO : 개별 게임리스트, 개별 게임으로 이동하도록 수정 */}
-            <Route path="GameListDetail" element={<GameListDetail />}></Route>
-            <Route path="GameDetail" element={<GameDetail />}></Route>
+            <Route path="GameListDetail/:id" element={<GameListDetail />}></Route>
+            <Route path="GameDetail/:id" element={<GameDetail />}></Route>
 
-            {/* TODO : 리스트를 담아 이동하도록 수정 */}
             <Route path="MakeLink" element={<MakeLink />}></Route>
             <Route path="ShareLink" element={<ShareLink />}></Route>
           </Routes>
-        </Router>
+        </BrowserRouter>
       </Container>
     </Provider>
-    
-   
   )
 }
 
