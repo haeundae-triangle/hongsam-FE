@@ -13,7 +13,7 @@ export const EachGame = ({ game, index, checkbox, numbering }) => {
   const [inBoxGames, setInBoxGames] = useState([]);
 
   const handleGoDetail = () => {
-    navigate(`/GameDetail?gameId=${game.game_id}`);
+    navigate(`/GameDetail/${game.game_id}`);
   };
 
   const handleButtonClick = () => {

@@ -10,7 +10,7 @@ export const EachGameList = (props) => {
 
   const handleClick = () => {
     // console.log('게임리스트 아이디 확인하자' + info.playlist_id)
-    navigate(`/GameListDetail?boxId=${info.playlist_id}`);
+    navigate(`/GameListDetail/${info.playlist_id}`);
   };
 
   return (
