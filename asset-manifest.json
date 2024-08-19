@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "https://haeundae-triangle.github.io/hongsam-FE/static/css/main.936e2727.css",
-    "main.js": "https://haeundae-triangle.github.io/hongsam-FE/static/js/main.300fd47f.js",
+    "main.js": "https://haeundae-triangle.github.io/hongsam-FE/static/js/main.ea704b33.js",
     "static/js/453.2c5c1717.chunk.js": "https://haeundae-triangle.github.io/hongsam-FE/static/js/453.2c5c1717.chunk.js",
     "static/media/2dLogo.png": "https://haeundae-triangle.github.io/hongsam-FE/static/media/2dLogo.f276ff41f9d3092cc050.png",
     "index.html": "https://haeundae-triangle.github.io/hongsam-FE/index.html",
     "main.936e2727.css.map": "https://haeundae-triangle.github.io/hongsam-FE/static/css/main.936e2727.css.map",
-    "main.300fd47f.js.map": "https://haeundae-triangle.github.io/hongsam-FE/static/js/main.300fd47f.js.map",
+    "main.ea704b33.js.map": "https://haeundae-triangle.github.io/hongsam-FE/static/js/main.ea704b33.js.map",
     "453.2c5c1717.chunk.js.map": "https://haeundae-triangle.github.io/hongsam-FE/static/js/453.2c5c1717.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.936e2727.css",
-    "static/js/main.300fd47f.js"
+    "static/js/main.ea704b33.js"
   ]
 }
