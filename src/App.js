@@ -19,14 +19,14 @@ function App() {
         {/* <Router basename="/hongsam-FE"></Router> */}
           <Routes>
             <Route path="/hongsam-FE" element={<MainView />}></Route>
-            <Route path="GameBox" element={<GameBox />}></Route>
+            <Route path="/GameBox" element={<GameBox />}></Route>
             {/* <Route path="Search" element={<Search />}></Route> */}
 
-            <Route path="GameListDetail/:id" element={<GameListDetail />}></Route>
-            <Route path="GameDetail/:id" element={<GameDetail />}></Route>
+            <Route path="/GameListDetail/:id" element={<GameListDetail />}></Route>
+            <Route path="/GameDetail/:id" element={<GameDetail />}></Route>
 
-            <Route path="MakeLink" element={<MakeLink />}></Route>
-            <Route path="ShareLink" element={<ShareLink />}></Route>
+            <Route path="/MakeLink" element={<MakeLink />}></Route>
+            <Route path="/ShareLink" element={<ShareLink />}></Route>
           </Routes>
         </BrowserRouter>
       </Container>
