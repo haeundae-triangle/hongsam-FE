@@ -8,15 +8,14 @@ import GameListDetail from "./pages/GameListDetail.js";
 import GameDetail from "./pages/GameDetail.js";
 import MakeLink from "./pages/MakeLink.js";
 import ShareLink from "./pages/ShareLink.js";
-// import Search from "./pages/Search.js";
 import styled from 'styled-components';
 
 function App() {
   return (
     <Provider store={store}>
       <Container>
-        {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
-        <BrowserRouter basename="/hongsam-FE">
+        <BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}>
+        {/* <BrowserRouter basename="/hongsam-FE"> */}
         {/* <Router basename="/hongsam-FE"></Router> */}
           <Routes>
             <Route path="/" element={<MainView />}></Route>
