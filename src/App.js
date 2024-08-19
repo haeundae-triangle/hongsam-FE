@@ -18,7 +18,7 @@ function App() {
         <BrowserRouter basename={process.env.PUBLIC_URL}>
         {/* <Router basename="/hongsam-FE"></Router> */}
           <Routes>
-            <Route path="/hongsam-FE" element={<MainView />}></Route>
+            <Route path="/" element={<MainView />}></Route>
             <Route path="/GameBox" element={<GameBox />}></Route>
             {/* <Route path="Search" element={<Search />}></Route> */}
 
