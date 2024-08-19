@@ -11,6 +11,7 @@ import ShareLink from "./pages/ShareLink.js";
 import styled from 'styled-components';
 
 function App() {
+  console.log(process.env.PUBLIC_URL);
   return (
     <Provider store={store}>
       <Container>
