@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "https://haeundae-triangle.github.io/static/css/main.936e2727.css",
-    "main.js": "https://haeundae-triangle.github.io/static/js/main.ede2c2ae.js",
+    "main.js": "https://haeundae-triangle.github.io/static/js/main.b19351a1.js",
     "static/js/453.2c5c1717.chunk.js": "https://haeundae-triangle.github.io/static/js/453.2c5c1717.chunk.js",
     "static/media/2dLogo.png": "https://haeundae-triangle.github.io/static/media/2dLogo.f276ff41f9d3092cc050.png",
     "index.html": "https://haeundae-triangle.github.io/index.html",
     "main.936e2727.css.map": "https://haeundae-triangle.github.io/static/css/main.936e2727.css.map",
-    "main.ede2c2ae.js.map": "https://haeundae-triangle.github.io/static/js/main.ede2c2ae.js.map",
+    "main.b19351a1.js.map": "https://haeundae-triangle.github.io/static/js/main.b19351a1.js.map",
     "453.2c5c1717.chunk.js.map": "https://haeundae-triangle.github.io/static/js/453.2c5c1717.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.936e2727.css",
-    "static/js/main.ede2c2ae.js"
+    "static/js/main.b19351a1.js"
   ]
 }
