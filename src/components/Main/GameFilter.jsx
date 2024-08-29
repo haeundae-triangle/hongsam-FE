@@ -6,7 +6,7 @@ import useFetchTop10 from '../../hooks/useFetchTop10';
 // 게임 소개
 export const GameFilter = (props) => {
   const {allGames} = props;
-  const { top10Games, error, isLoading } = useFetchTop10();
+  // const { top10Games, error, isLoading } = useFetchTop10();
   const [selectedCategory, setSelectedCategory] = useState('아이엠 그라운드 게임')
   const categorys = ['아이엠 그라운드 게임', '노래부르는 게임', '운빨 게임', '두뇌 게임', '순발력 게임', '한명 죽이기 게임', '웃음 참기 게임']
 

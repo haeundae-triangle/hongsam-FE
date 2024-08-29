@@ -23,7 +23,8 @@ export const BannerCarousel = () => {
         {images.map((image, index) => (
           <BannerImage
             key={index}
-            src={`assets/BannerCarousel/${image}.png`}
+            // src={`assets/BannerCarousel/${image}.png`}
+            src={`${process.env.PUBLIC_URL}/assets/BannerCarousel/${image}.png`}
             alt={index}
             style={{ display: currentIndex === index ? 'block' : 'none' }}
           />

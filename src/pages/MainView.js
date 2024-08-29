@@ -14,7 +14,7 @@ const MainView = () => {
   const { serviceBoxes, serviceBoxesError, serviceBoxesIsLoading } = useFetchServiceGameBoxes();
 
   useEffect(() => {
-    fetch('AllGames.json')
+    fetch(`${process.env.PUBLIC_URL}/AllGames.json`)
       .then(response => response.json())
       .then(json => {
         setAllGames(json);

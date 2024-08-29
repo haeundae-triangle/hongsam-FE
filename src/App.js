@@ -11,13 +11,13 @@ import ShareLink from "./pages/ShareLink.js";
 import styled from 'styled-components';
 
 function App() {
-  console.log(process.env.PUBLIC_URL);
+  console.log(process.env.REACT_APP_PUBLIC_URL);
   return (
     <Provider store={store}>
       <Container>
-        <BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}>
-        {/* <BrowserRouter basename="/hongsam-FE"> */}
-        {/* <Router basename="/hongsam-FE"></Router> */}
+        {/* <BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}> */}
+        <BrowserRouter basename="/hongsam-FE">
+        {/* <BrowserRouter> */}
           <Routes>
             <Route path="/" element={<MainView />}></Route>
             <Route path="/GameBox" element={<GameBox />}></Route>
@@ -30,7 +30,7 @@ function App() {
             <Route path="/ShareLink" element={<ShareLink />}></Route>
           </Routes>
         </BrowserRouter>
-      </Container>
+        </Container>
     </Provider>
   )
 }

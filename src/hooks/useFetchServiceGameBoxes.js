@@ -5,12 +5,10 @@ const useFetchServiceGameBoxes = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
-  const apiUrl = process.env.REACT_APP_API_ENDPOINT
-
   useEffect(() => {
     const fetchServiceGameBoxes = async () => {
       try {
-        const response = await fetch(`${apiUrl}/api/games/servicePlaylist`);
+        const response = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/api/games/servicePlaylist`);
 
         if (!response.ok) {
         throw new Error('서비스 게임박스 목록 가져오기 실패');
@@ -32,7 +30,7 @@ const useFetchServiceGameBoxes = () => {
   // 디버깅
   useEffect(() => {
     const jsonString = JSON.stringify(serviceBoxes, null, 2);
-    // console.log('게임박스 목록 (포맷된 JSON):', jsonString);
+    console.log('게임박스 목록 (포맷된 JSON):', jsonString);
   });
 
 
