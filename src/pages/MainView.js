@@ -30,7 +30,7 @@ const MainView = () => {
       <GameFilter allGames={allGames} />
       <GameListBanner />
       <GameLists info={serviceBoxes}/>
-      <BottomNavigationBar />
+      {/* <BottomNavigationBar /> */}
     </Container>
   );
 }
